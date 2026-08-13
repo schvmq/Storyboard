@@ -1,0 +1,364 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-beige);
+}
+
+
+:root {
+    /* Primary */
+    --color-red: #952323;
+    --color-black: #272121;
+
+    /* Neutrals */
+    --color-beige: #EFE4CF;
+    --color-off-white: #F8F5EF;
+
+    /* Accents */
+    --color-orange: #BF5222;
+    --color-blue: #6B86A6;
+    --color-mustard: #D7A43B;
+    --color-olive: #7E845A;
+    --color-sage: #A8B18A;
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    position: relative;
+    min-height: 100vh;
+    padding: 5rem;
+}
+
+
+/* =========================
+   HERO / STORYBOARD
+========================= */
+
+.hero {
+    position: relative;
+    min-height: 90vh;
+    overflow: visible;
+    z-index: 2;
+    .hero {
+    padding-bottom: 100px;
+}
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--color-beige);
+    background-image: url("assets/textures/paper-texture.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.eyes-here {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.hero__title {
+    position: relative;
+    z-index: 3;
+    width: min(85vw, 1150px);
+}
+
+.hero__title img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.hero__quote {
+    position: absolute;
+
+    left: 50%;
+    bottom: 21%;
+
+    transform: translateX(-50%);
+
+    z-index: 4;
+
+    width: max-content;
+    max-width: 90%;
+
+    font-size: clamp(0.75rem, 1vw, 1rem);
+    font-weight: 600;
+    text-align: center;
+
+    color: var(--color-black);
+}
+
+
+/* =========================
+   PAINT SPLASHES
+========================= */
+
+.hero__splash {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero__splash img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* Top-left */
+
+.hero__splash--top {
+    width: min(30vw, 420px);
+
+    top: -3%;
+    left: -2%;
+}
+
+
+/* Bottom-right */
+
+.hero__splash--right {
+    width: min(32vw, 450px);
+
+    right: -3%;
+    bottom: -30%;
+}
+
+
+/* =========================
+   CHECKER STRIP
+========================= */
+
+.checker {
+    position: absolute;
+    left: 0;
+    bottom: -2%;
+
+    display: flex;
+    gap: 0;
+
+    z-index: 4;
+}
+
+.checker span {
+    width: 50px;
+    height: 50px;
+    background: var(--color-black);
+    flex-shrink: 0;
+}
+
+/* Alternate squares vertically */
+
+.checker span:nth-child(even) {
+    transform: translateY(100%);
+}
+
+
+
+/* =========================
+   EYES HERE
+========================= */
+
+.eyes-here {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    background-color: var(--color-beige);
+
+    padding: 8rem 8vw;
+}
+
+/* Checker strip */
+.checker--eyes {
+    right: 0;
+    left: auto;
+
+    bottom: 3%;
+}
+
+/* Header */
+
+.eyes-here__header {
+    margin-bottom: 4rem;
+}
+
+.eyes-here__header,
+.eyes-here__content,
+.eyes-here__note {
+    position: relative;
+    z-index: 1;
+}
+
+/* Paint splash */
+.eyes-here__splash {
+    position: absolute;
+
+    width: min(28vw, 400px);
+
+    left: -2%;
+    bottom: -50%;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+.eyes-here__splash img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.section-label {
+    margin-bottom: 0.5rem;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+
+    color: var(--color-red);
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: var(--color-black);
+}
+
+/* Photo */
+
+.eyes-here__photo {
+    display: block;
+
+    width: 100%;
+    max-width: 355px;
+    height: 80px;
+
+    object-fit: cover;
+
+    margin-bottom: 1.25rem;
+}
+
+/* Content */
+
+.eyes-here__content {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 4rem;
+}
+
+
+/* Cards */
+
+.info-card h3 {
+    margin-bottom: 1rem;
+
+    font-size: clamp(1.3rem, 2vw, 2rem);
+
+    color: var(--color-red);
+}
+
+.info-card p {
+    max-width: 32rem;
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+
+    color: var(--color-black);
+}
+
+
+/* Bottom note */
+
+.eyes-here__note {
+    margin-top: 6rem;
+
+    text-align: center;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: var(--color-black);
+}
+
+
+/* Ride transition section */
+
+.ride-transition {
+    min-height: 45vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    position: relative;
+}
+
+.ride-transition > div {
+    position: static;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .eyes-here {
+        padding: 5rem 2rem;
+    }
+
+    .eyes-here__content {
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+    }
+
+    .eyes-here__header {
+        margin-bottom: 3rem;
+    }
+
+    .eyes-here__note {
+        margin-top: 4rem;
+    }
+
+}
