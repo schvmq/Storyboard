@@ -8,6 +8,11 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -15,6 +20,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--color-beige);
+    overflow-x: hidden;
+
 }
 
 
@@ -160,8 +167,8 @@ body {
 
 .checker {
     position: absolute;
-    left: 0;
-    bottom: -2%;
+    left: -5px;
+    bottom: -3%;
 
     display: flex;
     gap: 0;
@@ -206,7 +213,7 @@ body {
 
 /* Checker strip */
 .checker--eyes {
-    right: 0;
+    right: -5px;
     left: auto;
 
     bottom: 3%;
@@ -601,7 +608,7 @@ body {
 
     min-height: 1200px;
 
-    padding: 0rem 5vw 7rem;
+    padding: 0rem 5vw 3rem;
 
     overflow: hidden;
 }
@@ -651,26 +658,11 @@ body {
     transform: translateX(-100px);
 }
 
-.b-side__board > img {
+.b-side__board-image {
     display: block;
 
     width: 100%;
     height: auto;
-}
-
-/* =========================
-   B SIDE SPLATTER
-========================= */
-
-.b-side__splatter {
-    position: absolute;
-
-    width: 280px;
-
-    left: 4%;
-    top: 53%;
-
-    z-index: -1;
 }
 
 /* =========================
@@ -685,11 +677,11 @@ body {
 
     z-index: 5;
 
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
 .b-side__board-intro p {
-    margin: 0 0 0.3rem;
+    margin: 0.2rem 0 0.2rem;
 }
 
 .b-side__board-intro span {
@@ -702,10 +694,46 @@ body {
 
     width: 380px;
 
-    left: 15%;
-    top: 16%;
+    left: 4%;
+    top: 14%;
 
     z-index: 1;
+}
+
+.b-side__intro-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 30px;
+}
+
+.b-side__board-note {
+    position: absolute;
+
+    top: 20px;
+    right: 15px;
+
+    z-index: 5;
+
+    font-size: 1rem;
+}
+
+.b-side__note-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 30px 15px;
+}
+
+.b-side__note-content p {
+    margin: 0.2rem 1rem 0.2rem;
+}
+
+.b-side__note-content ul {
+    font-size: 0.75rem;
+    opacity: 0.7;
 }
 
 /* =========================
@@ -714,16 +742,105 @@ body {
 
 .b-side__item {
     position: absolute;
-
-    z-index: 2;
+    z-index: 3;
 }
 
 .b-side__item img {
     display: block;
-
     width: 100%;
     height: auto;
 }
+
+
+/* ESSENTIALS */
+
+.b-side__item--keys {
+    width: 80px;
+
+    left: 14%;
+    top: 25%;
+}
+
+.b-side__item--hats {
+    width: 180px;
+
+    left: 8%;
+    top: 40%;
+}
+
+.b-side__item--essentials {
+    width: 215px;
+
+    left: 5%;
+    bottom: 22%;
+}
+
+.b-side__item--books {
+    width: 300px;
+
+    left: 23%;
+    top: 20%;
+}
+
+.b-side__item--ticket {
+    width: 80px;
+
+    left:  37%;
+    bottom: 8%;
+    transform: rotate(45deg);
+}
+
+.b-side__item--guitar-pick {
+    width: 200px;
+
+    left: 47%;
+    top: 17%;
+}
+
+.b-side__item--mech-keeb {
+    width: 360px;
+
+    right: 14%;
+    bottom: 7%;
+}
+
+.b-side__item--pets {
+    width: 150px;
+
+    right: 21%;
+    top: -12%;
+}
+
+.b-side__item--note {
+    width: 210px;
+    right: 1%;
+    top: 0%;
+    z-index: 1;
+}
+
+.b-side__item--music {
+    width: 160px;
+
+    right: 5%;
+    top: 33%;
+}
+
+.b-side__item--glasses {
+    width: 120px;
+
+    right: 30%;
+    bottom: 27%;
+}
+
+.b-side__item--games {
+    width: 130px;
+
+    right: 15%;
+    bottom: 31%;
+}
+
+
+
 
 /* =========================
    SKATEBOARD
@@ -752,27 +869,278 @@ body {
     top: 75%
 }
 
+/* =========================
+   B SIDE DECORATIVES
+========================= */
+
+.b-side__splatter {
+    position: absolute;
+
+    width: 280px;
+
+    bottom: 275px;
+    left: 50px;
+
+    z-index: -1;
+}
+
+.b-side__sticker {
+    position: absolute;
+
+    width: 100px;
+
+    top: 250px;
+    right: 100px;
+
+    z-index: 4;
+}
+
+.b-side__outro-quote {
+    position: absolute;
+
+    width: 600px;
+
+    left: 50%;
+    bottom: 20%;
+
+    transform: translateX(-30%);
+
+    z-index: 4;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+
+    color: var(--black);
+}
+
+/* =========================
+   OFF THE RECORD
+========================= */
+
+.off-record {
+    position: relative;
+    margin-top: -48px;
+
+    min-height: 1068px;
+
+    padding: 0rem 5vw 7rem;
+
+    overflow: hidden;
+}
 
 
+/* =========================
+   OFF THE RECORD HEADING
+========================= */
+
+.off-record__heading {
+    text-align: center;
+    margin-bottom:-4rem;
+}
+
+.off-record__number {
+    display: block;
+
+    font-size: 2.5rem;
+    font-weight: 900;
+
+    margin-bottom: 0.2rem;
+}
+
+.off-record__heading h2 {
+    margin: -1rem 0 0.5rem;
+
+    color: var(--color-orange);
+
+    font-size: clamp(2rem, 3.5vw, 5rem);
+    font-weight: 900;
+}
+
+.off-record__heading p {
+    margin: 0.4rem 0 0;
+
+    font-size: 0.8rem;
+}
+
+/* =========================
+   OFF THE RECORD SPLASH
+========================= */
+
+.off-record__splash {
+    position: absolute;
+
+    width: 750px;
+    height: auto;
+
+    top: 120px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+/* =========================
+   OFF THE RECORD PHOTOS
+========================= */
+
+.off-record__photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 2rem auto 0;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.off-record__photo {
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.05);
+
+    flex-shrink: 0;
+}
+
+.off-record__photo:nth-child(2) {
+    position: relative;
+    z-index: 3;
+}
+
+.off-record__photo + .off-record__photo {
+    margin-left: -65px;
+}
 
 
+.off-record__photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 
+/* =========================
+   OFF THE RECORD FACTS
+========================= */
+
+.off-record__fact {
+    margin: 2rem 1rem 2rem;
+}
+
+/* =========================
+   OFF THE RECORD FACTS
+========================= */
+
+.off-record__facts {
+    width: min(1200px, 90%);
+    margin: 4rem auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0rem;
+}
 
 
+/* =========================
+   FACT BLOCK
+========================= */
 
+.off-record__fact-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.7rem;
 
+    width: 100%;
+}
 
+.off-record__file-image {
+    display: block;
+    width: 50px;
+    height: auto;
+    flex-shrink: 0;
+}
 
+.off-record__fact-content {
+    flex: 1;
+}
 
+.off-record__fact-content p {
+    margin: 0;
+    text-align: left;
+    font-size: 0.8rem;
+}
 
+/* =========================
+   OFF THE RECORD DECORATIVES
+========================= */
 
+.off-record__decorations {
+    position: absolute;
+    inset: 0;
 
+    pointer-events: none;
 
+    z-index: 3;
+}
 
+.off-record__decor {
+    position: absolute;
+    display: block;
+    height: auto;
+}
 
+.off-record__decor--sticker1 {
+    width: 100px;
+    top: -10px;
+    right: 25%;
+}
 
+.off-record__decor--sticker2 {
+    width: 40px;
+    top: 400px;
+    right: 25%;
+    transform: rotate(-10deg)
+}
 
+.off-record__decor--cat-guitar{
+    width: 170px;
+    top: 28%;
+    left: 17%;
+}
+
+.off-record__decor--legend{
+    width: 140px;
+    top: 8%;
+    left: 10%;
+}
+
+.off-record__decor--mixtape{
+    width: 250px;
+    top: 50px;
+    right: 0%;
+}
+
+.off-record__decor--cds{
+    width: 200px;
+    bottom: 15%;
+    right: 0%;
+}
 
 
 
