@@ -1142,6 +1142,520 @@ body {
     right: 0%;
 }
 
+/* =========================
+   ARCHIVE
+========================= */
+
+.archive {
+    position: relative;
+
+    min-height: 1000px;
+
+    background: var(--color-black);
+
+    padding: 5rem 5vw;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   ARCHIVE HEADING
+========================= */
+
+.archive__heading {
+    position: absolute;
+
+    top: 50%;
+    right: 5%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 5;
+}
+
+.archive__heading span {
+    font-size: 2rem;
+    font-weight: 900;
+
+    color: var(--color-beige);
+}
+
+.archive__heading h2 {
+
+    color: var(--color-beige);
+
+    font-size: 3rem;
+    font-weight: 900;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* =========================
+   ARCHIVE PHOTOS
+========================= */
+
+.archive__photos {
+    position: relative;
+
+    width: 90%;
+    max-width: 1150px;
+    min-height: 750px;
+
+    margin: 1rem 0 0;
+    padding-right: 0;
+    margin-right: 0;
+    transform: translateX(3%);
+}
+
+.archive__photo {
+    position: absolute;
+
+    z-index: 1;
+}
+
+.archive__photo img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+.archive__photo--01 {
+    width: 450px;
+
+    top: 0%;
+    left: 0%;
+}
+
+.archive__photo--02 {
+    width: 250px;
+
+    top: 35%;
+    left: 5%;
+    z-index: 2;
+
+    transform: rotate(4deg);
+}
+
+.archive__photo--03 {
+    width: 270px;
+
+    bottom: 0%;
+    left: 0%;
+
+    transform: rotate(-2deg);
+}
+
+.archive__photo--04 {
+    width: 270px;
+
+    top: 2%;
+    left: 34%;
+
+    transform: rotate(-5deg);
+}
+
+.archive__photo--05 {
+    width: 190px;
+
+    top: 30%;
+    left: 26%;
+    z-index: 2;
+
+    transform: rotate(2deg);
+}
+
+.archive__photo--06 {
+    width: 180px;
+
+    bottom: 19%;
+    left: 24%;
+    z-index: 2;
+
+    transform: rotate(3deg);
+}
+
+.archive__photo--07 {
+    width: 210px;
+
+    bottom: -1%;
+    left: 26%;
+
+}
+
+.archive__photo--08 {
+    width: 190px;
+
+    top: 2%;
+    right: 26%;
+    z-index: 2;
+
+    transform: rotate(2deg);
+}
+
+.archive__photo--09 {
+    width: 180px;
+
+    top: 25%;
+    left: 41%;
+
+    transform: rotate(-2deg);
+}
+
+.archive__photo--10 {
+    width: 150px;
+
+    top: 33%;
+    right: 31%;
+    z-index: 2;
+}
+
+.archive__photo--11 {
+    width: 300px;
+
+    bottom: 2%;
+    left: 40%;
+    z-index: 0;
+
+    transform: rotate(-2deg);
+}
+
+.archive__photo--12 {
+    width: 160px;
+
+    bottom: 30%;
+    left: 46%;
+
+    transform: rotate(-2deg);
+}
+
+.archive__photo--13 {
+    width: 300px;
+
+    top: 0%;
+    right: 0%;
+}
+
+.archive__photo--14 {
+    width: 160px;
+
+    top: 28%;
+    right: 17%;
+    z-index: 1;
+
+    transform: rotate(-8deg);
+}
+
+.archive__photo--15 {
+    width: 120px;
+
+    bottom: 32%;
+    right: 21%;
+    z-index: 2;
+}
+
+.archive__photo--16 {
+    width: 150px;
+
+    bottom: 2%;
+    right: 20%;
+    z-index: 2;
+
+    
+}
+
+.archive__photo--17 {
+    width: 180px;
+
+    bottom: 32%;
+    right: 1%;
+    z-index: 1;
+
+    transform: rotate(-2deg);
+}
+
+.archive__photo--18 {
+    width: 150px;
+
+    bottom: 3%;
+    right: 1%;
+    z-index: 2;
+}
+
+.archive__photo--19 {
+    width: 120px;
+
+    bottom: 18%;
+    right: 11%;
+    z-index: 2;
+}
+
+
+/* =========================
+   THE CREW TAB
+========================= */
+
+.crew-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-black);
+
+    padding: 1rem 0 8rem;
+}
+
+.crew-tab p {
+    margin: 0 0 0.3rem;
+
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-beige);
+}
+
+.crew-tab h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 900;
+    color: var(--color-beige);
+
+    text-align: center;
+}
+
+
+/* =========================
+   LEAVE A MARK
+========================= */
+
+.leave-mark {
+    position: relative;
+
+    min-height: 120vh;
+
+    background: var(--color-red);
+
+    padding: 5rem 8vw;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   LEAVE A MARK INTRO
+========================= */
+
+.leave-mark__intro {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   LEAVE A MARK HEADING
+========================= */
+
+.leave-mark__heading {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+
+
+    transform: rotate(-2deg);
+
+}
+
+.leave-mark__dash {
+    display: block;
+
+    width: 38px;
+    height: 7px;
+
+    background: #171515;
+
+    border-radius: 50%;
+
+    transform: rotate(-3deg);
+}
+
+.leave-mark__heading h2 {
+    margin: 0;
+    color: var(--color-beige);
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   LEAVE A MARK DESCRIPTION
+========================= */
+
+.leave-mark__intro p {
+    margin: 1rem 0 0 58px;
+
+    color: var(--color-beige);
+
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* =========================
+   ROLL OUT
+========================= */
+
+.roll-out {
+    position: relative;
+
+    min-height: 535px;
+
+    padding: 5rem 8vw;
+
+    background: var(--cream);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   ROLL OUT CONTENT
+========================= */
+
+.roll-out__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7rem;
+
+    max-width: 1100px;
+    margin: 14rem 10rem;
+}
+
+
+/* =========================
+   ROLL OUT HEADING
+========================= */
+
+.roll-out__title {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    transform: rotate(-2deg)
+}
+
+.roll-out__heading {
+    text-align: center;
+}
+
+.roll-out__number {
+    display: block;
+
+    font-size: clamp(3rem, 4vw, 5rem);
+    font-weight: 900;
+
+    margin-bottom: 0.3rem;
+}
+
+.roll-out__heading h2 {
+    margin: 0;
+
+    color: var(--color-red);
+
+    font-size: clamp(3rem, 4vw, 5rem);
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+.roll-out__heading p {
+    margin: 1rem 0 0;
+
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.roll-out__socials {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.7rem;
+}
+
+.roll-out__social-row {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.roll-out__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    background: var(--color-black);
+    color: var(--color-off-white);
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 1.7rem;
+
+    transition: transform 0.2s ease;
+}
+
+.roll-out__social:hover {
+    transform: translateY(-4px) rotate(-3deg);
+}
+
+
+/* =========================
+   SITE FOOTER
+========================= */
+
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 50px;
+
+    padding: 0 5vw;
+
+    background: var(--color-red);
+    color: var(--color-off-white);
+
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+
+/* =========================
+   FOOTER ITEMS
+========================= */
+
+.site-footer__item {
+    white-space: nowrap;
+}
 
 
 
