@@ -1,0 +1,942 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    /* =========================
+       COLORS
+    ========================= */
+
+    /* Primary */
+    --color-red: #952323;
+    --color-black: #272121;
+
+    /* Neutrals */
+    --color-beige: #EFE4CF;
+    --color-off-white: #F8F5EF;
+
+    /* Accents */
+    --color-orange: #BF5222;
+    --color-blue: #6B86A6;
+    --color-mustard: #D7A43B;
+    --color-olive: #7E845A;
+    --color-sage: #A8B18A;
+
+    /* =========================
+       FONTS
+    ========================= */
+
+    --font-body: "Outfit", sans-serif;
+    --font-heading: "Story Script", cursive;
+    --font-marker: "Permanent Marker", cursive;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-beige);
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    position: relative;
+    min-height: 100vh;
+    padding: 5rem;
+}
+
+
+/* =========================
+   BACK ALLEY
+========================= */
+
+.back-alley {
+    width: 100%;
+
+    background: var(--color-black);
+    color: var(--color-off-white);
+
+    overflow: hidden;
+}
+
+
+
+/* =========================
+   BACK ALLEY HERO
+========================= */
+
+.back-alley__hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 18rem 5rem;
+}
+
+.back-alley__hero h1 {
+    width: 100%;
+
+    margin: 0;
+
+    color: var(--color-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+
+    line-height: 1;
+
+    text-align: center;
+
+    text-shadow:
+        8px 8px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   BACK ALLEY CHAPTERS
+========================= */
+
+.back-alley__chapters {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 10px;
+
+    padding-top: 7.75rem;
+}
+
+
+/* =========================
+   SHARED CHAPTER
+========================= */
+
+.back-alley__chapter {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 1440px;
+
+    margin-inline: auto;
+
+    padding: 6.25rem;
+}
+
+
+/* =========================
+   SHARED CHAPTER HEADING
+========================= */
+
+.back-alley__chapter-heading {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.back-alley__chapter-heading p {
+    margin: 0;
+
+    color: var(--color-blue);
+
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+
+    line-height: 1;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   SHARED BODY
+========================= */
+
+.back-alley__body {
+    width: 100%;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+.back-alley__body p {
+    margin: 0 0 0.6rem;
+}
+
+.back-alley__body p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   01 — WHERE IT ALL BEGAN
+========================= */
+
+.back-alley__chapter--01 {
+    gap: 3rem;
+
+    align-items: center;
+}
+
+.back-alley__chapter--01
+.back-alley__body {
+    margin-top: 2rem;
+}
+
+/* =========================
+   CHAPTER 01 IMAGE
+========================= */
+
+.back-alley__chapter--01
+.back-alley__chapter-image {
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    height: 500px;
+
+    overflow: hidden;
+}
+
+.back-alley__chapter--01
+.back-alley__chapter-image > img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   CHAPTER 01 HEADING
+========================= */
+
+.back-alley__chapter--01
+.back-alley__chapter-heading {
+    position: absolute;
+
+    left: 27px;
+    right: 27px;
+    bottom: 10px;
+
+    width: auto;
+
+    padding: 10px;
+
+    z-index: 2;
+}
+
+.back-alley__chapter--01
+.back-alley__chapter-heading h1 {
+    margin: 0;
+
+    max-width: 100%;
+
+    color: var(--color-beige);
+
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.1;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================
+   02 — THE FIRST PUSH
+========================= */
+
+.back-alley__chapter--02 {
+    gap: 10px;
+
+    align-items: flex-end;
+}
+
+.back-alley__chapter--02
+.back-alley__chapter-heading {
+    justify-content: flex-end;
+
+    max-width: 1100px;
+
+    margin-left: auto;
+
+    padding: 10px;
+}
+
+.back-alley__chapter--02
+.back-alley__chapter-heading p {
+    text-align: center;
+}
+
+.back-alley__chapter-image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    padding: 10px;
+}
+
+.back-alley__chapter-image {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+
+    height: 400px;
+}
+
+.back-alley__chapter-image img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.back-alley__body-wrap {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 10px;
+}
+
+.back-alley__chapter--02
+.back-alley__body {
+    width: 100%;
+    max-width: 900px;
+
+    margin-left: auto;
+
+    text-align: right;
+}
+
+
+/* =========================
+   03 — FINDING HIS PACE
+========================= */
+
+.back-alley__chapter--03 {
+    gap: 10px;
+
+    align-items: flex-start;
+}
+
+.back-alley__image-strip {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+
+    gap: 35px;
+}
+
+.back-alley__image-strip-wide {
+    position: relative;
+
+    flex: 1 0 0;
+
+    min-width: 0;
+
+    height: 130px;
+}
+
+.back-alley__image-strip-wide img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.back-alley__image-strip-square {
+    position: relative;
+
+    width: 130px;
+    height: 130px;
+
+    flex-shrink: 0;
+}
+
+.back-alley__image-strip-square img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.back-alley__chapter--03
+.back-alley__chapter-heading {
+    max-width: 1100px;
+
+    padding: 10px;
+}
+
+.back-alley__chapter--03
+.back-alley__chapter-heading p {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+}
+
+
+/* =========================
+   04 — A DETOUR?
+========================= */
+
+.back-alley__chapter--04 {
+    flex-direction: row;
+
+    gap: 56px;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 9.375rem 6.25rem;
+}
+
+.back-alley__text-column {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    flex: 1 0 0;
+
+    min-width: 0;
+}
+
+.back-alley__chapter--04
+.back-alley__chapter-heading {
+    justify-content: flex-end;
+
+    max-width: 1100px;
+}
+
+.back-alley__chapter--04
+.back-alley__chapter-heading p {
+    text-align: right;
+    margin-bottom: 2rem;
+}
+
+.back-alley__chapter--04
+.back-alley__body-wrap {
+    justify-content: flex-end;
+}
+
+.back-alley__chapter--04
+.back-alley__body {
+    width: 100%;
+    max-width: 900px;
+
+    margin-left: auto;
+
+    text-align: right;
+}
+
+.back-alley__portrait {
+    position: relative;
+
+    width: 300px;
+    height: 500px;
+
+    flex-shrink: 0;
+}
+
+.back-alley__portrait img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   05 — OUT OF SYNC
+========================= */
+
+.back-alley__chapter--05 {
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.back-alley__inner {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    flex: 1 0 0;
+
+    min-width: 0;
+}
+
+.back-alley__chapter--05
+.back-alley__chapter-heading {
+    max-width: 1100px;
+
+    padding: 10px;
+}
+
+.back-alley__chapter--05
+.back-alley__body-wrap {
+    justify-content: flex-end;
+
+    max-width: 1000px;
+}
+
+
+/* =========================
+   06 — FINDING HIS OWN LANE
+========================= */
+
+.back-alley__chapter--06 {
+    gap: 30px;
+
+    align-items: center;
+}
+
+.back-alley__chapter--06
+.back-alley__chapter-heading {
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 10px;
+}
+
+.back-alley__chapter--06
+.back-alley__chapter-heading p {
+    text-align: center;
+}
+
+.back-alley__banner-wrap {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 10px 0;
+}
+
+.back-alley__banner {
+    position: relative;
+
+    width: 100%;
+    max-width: 1220px;
+
+    height: 250px;
+}
+
+.back-alley__banner img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   07 — THE GRIND
+========================= */
+
+.back-alley__chapter--07 {
+    align-items: center;
+
+    justify-content: center;
+}
+
+.back-alley__photo-grid {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+
+    gap: 21px;
+
+    padding-bottom: 8rem;
+}
+
+.back-alley__photo-card {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex: 1 0 0;
+
+    min-width: 0;
+}
+
+.back-alley__photo-card--dash {
+    margin-top: 88px;
+}
+
+.back-alley__photo-card--the {
+    margin-top: 155px;
+}
+
+.back-alley__photo-card--grind {
+    margin-top: 275px;
+}
+
+.back-alley__photo {
+    position: relative;
+
+    width: 100%;
+    height: 570px;
+
+    flex-shrink: 0;
+}
+
+.back-alley__photo img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.back-alley__photo--overflow {
+    overflow: hidden;
+}
+
+.back-alley__photo--overflow img {
+    width: 147.46%;
+    height: 100%;
+
+    left: -0.15%;
+    top: -0.06%;
+
+    object-fit: unset;
+}
+
+.back-alley__photo-label {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+
+    height: 165px;
+
+    padding: 10px;
+}
+
+.back-alley__photo-label span {
+    color: var(--color-beige);
+
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(4rem, 7vw, 6rem);
+    font-weight: 900;
+
+    line-height: 1;
+
+    text-shadow:
+        0 4px 4px rgba(0, 0, 0, 0.25);
+
+    word-break: break-word;
+}
+
+.back-alley__caption {
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+.back-alley__caption p {
+    margin: .5rem 0 0.6rem;
+}
+
+.back-alley__caption p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   08 — AFTER HOURS
+========================= */
+
+.back-alley__chapter--08 {
+    gap: 10px;
+
+    align-items: flex-start;
+}
+
+.back-alley__chapter--08
+.back-alley__banner-wrap {
+    align-items: flex-start;
+
+    padding: 10px;
+
+    width: 100%;
+}
+
+.back-alley__chapter--08
+.back-alley__chapter-heading {
+    max-width: 1100px;
+
+    padding: 10px;
+}
+
+.back-alley__chapter--08
+.back-alley__body-wrap {
+    justify-content: center;
+
+    max-width: 1220px;
+}
+
+.back-alley__chapter--08
+.back-alley__body {
+    text-align: justify;
+
+    color: white;
+}
+
+.back-alley__banner-bottom-wrap {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: 100%;
+    height: 250px;
+
+    padding: 10px;
+}
+
+.back-alley__banner-bottom {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+.back-alley__banner-bottom img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   09 — STILL MOVING
+========================= */
+
+.back-alley__chapter--09 {
+    gap: 60px;
+
+    align-items: center;
+
+    padding-bottom: 10rem;
+}
+
+.back-alley__visual {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: 100%;
+    max-width: 756px;
+}
+
+.back-alley__circles {
+    position: relative;
+
+    width: 100%;
+    height: 444px;
+}
+
+.back-alley__heading-overlay {
+    position: absolute;
+
+    left: 108px;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 540px;
+
+    padding: 10px;
+
+    z-index: 2;
+}
+
+.back-alley__heading-overlay p {
+    margin: 0;
+
+    color: var(--color-blue);
+
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+
+    line-height: 1;
+
+    text-align: center;
+}
+
+.back-alley__circle {
+    position: absolute;
+
+    top: 132px;
+
+    width: 312.397px;
+    height: 312.397px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.back-alley__circle--left {
+    left: 0;
+}
+
+.back-alley__circle--center {
+    left: 214px;
+}
+
+.back-alley__circle--right {
+    left: 444px;
+}
+
+.back-alley__closing-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 10px;
+}
+
+.back-alley__closing {
+    width: 100%;
+    max-width: 1000px;
+
+    text-align: center;
+
+    word-break: break-word;
+}
+
+.back-alley__closing p {
+    margin: 0 0 0.6rem;
+}
+
+.back-alley__closing p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   SITE FOOTER
+========================= */
+
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 50px;
+
+    padding: 0 5vw;
+
+    background: var(--color-blue);
+    color: var(--color-off-white);
+
+    font-size: 0.8rem;
+    font-weight: 500;
+    
+}
+
+
+/* =========================
+   FOOTER ITEMS
+========================= */
+
+.site-footer__item {
+    white-space: nowrap;
+}

@@ -15,17 +15,16 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-beige);
+html, body {
     overflow-x: hidden;
-
 }
 
-
 :root {
+
+    /* =========================
+       COLORS
+    ========================= */
+
     /* Primary */
     --color-red: #952323;
     --color-black: #272121;
@@ -40,8 +39,16 @@ body {
     --color-mustard: #D7A43B;
     --color-olive: #7E845A;
     --color-sage: #A8B18A;
-}
 
+    /* =========================
+       FONTS
+    ========================= */
+
+    --font-body: "Outfit", sans-serif;
+    --font-heading: "Story Script", cursive;
+    --font-marker: "Permanent Marker", cursive;
+
+}
 
 /* =========================
    GENERAL SECTION
@@ -54,18 +61,40 @@ body {
 }
 
 
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-beige);
+    overflow-x: hidden;
+
+}
+h3 {
+    font-family: var(--font-body)
+}
+h1,
+h2,
+h4,
+h5,
+h6, 
+span {
+    font-family: var(--font-marker);
+}
+
+
 /* =========================
    HERO / STORYBOARD
 ========================= */
 
 .hero {
     position: relative;
+
     min-height: 90vh;
-    overflow: visible;
-    z-index: 2;
-    .hero {
     padding-bottom: 100px;
-}
+
+    overflow: visible;
+
+    z-index: 2;
 
     display: flex;
     align-items: center;
@@ -107,7 +136,7 @@ body {
     position: absolute;
 
     left: 50%;
-    bottom: 21%;
+    bottom: 15%;
 
     transform: translateX(-50%);
 
@@ -116,7 +145,7 @@ body {
     width: max-content;
     max-width: 90%;
 
-    font-size: clamp(0.75rem, 1vw, 1rem);
+    font-size: clamp(0.75rem, 4vw, 1.2rem);
     font-weight: 600;
     text-align: center;
 
@@ -197,10 +226,7 @@ body {
 
 .eyes-here {
     min-height: auto;
-    padding-bottom: 100px;
-
     position: relative;
-
     display: flex;
     flex-direction: column;
 
@@ -208,7 +234,7 @@ body {
 
     background-color: var(--color-beige);
 
-    padding: 8rem 8vw;
+    padding: 12rem 8vw 10rem;
 }
 
 /* Checker strip */
@@ -216,13 +242,14 @@ body {
     right: -5px;
     left: auto;
 
-    bottom: 3%;
+    bottom: -2%;
 }
 
 /* Header */
 
 .eyes-here__header {
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
+    transform: rotate(-2deg)
 }
 
 .eyes-here__header,
@@ -239,7 +266,7 @@ body {
     width: min(28vw, 400px);
 
     left: -2%;
-    bottom: -50%;
+    bottom: -60%;
 
     z-index: 0;
     pointer-events: none;
@@ -288,6 +315,8 @@ body {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+
 
     gap: 4rem;
 }
@@ -299,6 +328,7 @@ body {
     margin-bottom: 1rem;
 
     font-size: clamp(1.3rem, 2vw, 2rem);
+    font-weight: bolder;
 
     color: var(--color-red);
 }
@@ -306,7 +336,7 @@ body {
 .info-card p {
     max-width: 32rem;
 
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.7;
 
     color: var(--color-black);
@@ -333,7 +363,7 @@ body {
 
 
 .ride-transition {
-    min-height: 45vh;
+    min-height: 55vh;
 
     display: flex;
     flex-direction: column;
@@ -348,6 +378,18 @@ body {
     position: static;
 }
 
+.ride-transition p {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-weight: 500;
+}
+
+.ride-transition .quote {
+    align-self: flex-start;
+    margin-left: 30%;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
 
 /* =========================
     KICK OFF SECTION
@@ -359,42 +401,64 @@ body {
 
     padding: 8rem 6vw 6rem;
 
-    overflow: hidden;
+    overflow: visible;
+    align-items: center;
+    justify-items: center;
 }
 
+
+
 .kick-off__content {
+    width: 100%;
     max-width: 1000px;
     min-height: 750px;
 
-    margin: 0 auto;
+    margin-inline: auto;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     align-items: center;
     justify-items: center;
 
-    gap: 3rem;
+    gap: 4rem;
 }
 
 .profile {
     position: relative;
     z-index: 2;
 
+    width: 100%;
+    max-width: 400px;
+
+    justify-self: center;
 }
 
 
 .profile__label {
-    display: inline-block;
+    display: block;
 
-    padding: 0.7rem 4rem;
+    width: 100%;
+    max-width: 300px;
 
-    background: var(--black);
-    color: var(--off-white);
+    background: var(--color-black);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+    padding: 0.7rem 2rem;
 
     transform: rotate(-3deg);
 
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-style: italic;
+
+    text-align: left;
+}
+
+.profile__label span {
+    font-family: var(--font-heading);
+    color: var(--color-off-white);
+    text-align: left;
+
 }
 
 .profile__number {
@@ -407,23 +471,32 @@ body {
 .profile__name-jp {
     margin: 0;
 
-    color: var(--red);
+    color: var(--color-red);
 
-    font-size: clamp(4rem, 7vw, 7rem);
+    font-size: clamp(4rem, 10vw, 7rem);
     line-height: 0.9;
 }
 
 .profile__name {
     display: inline-block;
 
-    margin-top: 0.8rem;
-    padding: 0.5rem 1.5rem;
+    width: 150%;
+    max-width: 350px;
 
-    background: var(--black);
-    color: var(--off-white);
+    margin-top: 2rem;
+    background: var(--color-black);
+    color: var(--color-beige);
 
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    text-align: left;
+}
+
+.profile__name h3 {
+    font-family: var(--font-marker);
+    margin: 0.5rem;
+    padding: 0.2rem 1rem;
+    
+
+    text-align: left;
 }
 
 .profile__info {
@@ -434,6 +507,15 @@ body {
     gap: 0.7rem;
 }
 
+.profile__info span {
+    font-family: var(--font-body);
+    font-size: medium;
+}
+
+.profile__info-item strong {
+    font-size: medium;
+    font-weight: 400;
+}
 .profile__info-item {
     display: grid;
     grid-template-columns: 24px 1fr;
@@ -445,7 +527,7 @@ body {
 
 .profile__icon {
     font-size: 20px;
-    color: var(--red);
+    color: var(--color-red);
 
     line-height: 1;
 }
@@ -455,9 +537,7 @@ body {
     flex-direction: column;
 }
 
-.profile__info-item strong {
-    font-weight: 500;
-}
+
 
 
 /* kick-off visual */
@@ -505,30 +585,50 @@ body {
     position: relative;
     z-index: 2;
 
-    align-self: flex-end;
+    align-self: center;
 
-    margin-right: 5%;
+    margin: 0;
+
+    transform: rotate(4deg);
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: baseline;
 
-    color: var(--red);
+    gap: 1.5rem;
 
-    font-size: clamp(3rem, 5vw, 5.5rem);
+    color: var(--color-red);
+
+    font-size: clamp(3rem, 3vw, 5.5rem);
     line-height: 0.8;
     font-weight: 900;
+}
+
+.kick-off__title span {
+    color: var(--color-black)
 }
 
 .kick-off__subtitle {
     position: relative;
     z-index: 2;
 
-    align-self: flex-end;
+    align-self: center;
 
-    margin-right: 5%;
-    margin-top: 1rem;
+    margin: -2.5rem 0 0;
 
     font-size: 0.8rem;
+}
+
+.kick-off__character {
+    position: relative;
+
+    width: 100%;
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
 }
 
 .kick-off__character-image {
@@ -548,6 +648,112 @@ body {
     height: auto;
 }
 
+/* =========================
+   KICK OFF DECORATIVES
+========================= */
+
+.kick-off__splash {
+    position: absolute;
+
+    width: 150px;
+
+    bottom: 43%;
+    left: 32%;
+
+    z-index: -1;
+}
+
+.kick-off__human {
+    position: absolute;
+
+    width: 100px;
+
+    bottom: 33%;
+    left: 40%;
+
+    z-index: -1;
+}
+
+.kick-off__sticker2 {
+    position: absolute;
+
+    width: 80px;
+
+    top: 35%;
+    left: 5%;
+
+    z-index: -1;
+}
+
+.kick-off__stars {
+    position: absolute;
+
+    width: 50px;
+
+    top: 16%;
+    right: 23%;
+
+    z-index: -1;
+}
+
+.kick-off__doodle {
+    position: absolute;
+
+    width: 50px;
+
+    top: 18%;
+    left: 40%;
+
+    z-index: -1;
+}
+
+.kick-off__skateboard1 {
+    position: absolute;
+
+    width: 350px;
+
+    bottom: -15%;
+    left: 0%;
+
+    z-index: 4;
+}
+
+.kick-off__keeb {
+    position: absolute;
+
+    width: 250px;
+
+    bottom: 2%;
+    right: 0%;
+}
+
+.kick-off__shoes {
+    position: absolute;
+
+    width: 230px;
+
+    top: 10%;
+    right: 0%;
+}
+
+.kick-off__shadow {
+    position: absolute;
+
+    width: 200px;
+
+    bottom: 7%;
+    right: 28%;
+    z-index: -1;
+}
+
+.kick-off__gif {
+    position: absolute;
+
+    width: 100px;
+
+    top: 45%;
+    right: 10%;
+}
 
 /* =========================
    BACK ALLEY LINK
@@ -621,27 +827,28 @@ body {
 .b-side__heading {
     display: flex;
     align-items: baseline;
-    gap: 1rem;
+    gap: 2rem;
 
     margin-left: 8%;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 
     position: relative;
     top: 40px;
 }
 
 .b-side__heading span {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 900;
 }
 
-.b-side__heading strong {
-    color: var(--red);
+.b-side__heading h2 {
+    color: var(--color-red);
 
     font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 900;
-
+    margin: 0;
 }
+
 
 /* =========================
    B SIDE BOARD
@@ -684,8 +891,8 @@ body {
     margin: 0.2rem 0 0.2rem;
 }
 
-.b-side__board-intro span {
-    font-size: 0.65rem;
+.b-side__board-intro .guide {
+    font-size: 0.75rem;
     opacity: 0.7;
 }
 
@@ -728,12 +935,19 @@ body {
 }
 
 .b-side__note-content p {
-    margin: 0.2rem 1rem 0.2rem;
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    margin: 0.1rem 1.4rem 0.2rem;
+    color: var(--color-off-white);
+    opacity: 0.8;
+
 }
 
 .b-side__note-content ul {
-    font-size: 0.75rem;
-    opacity: 0.7;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    opacity: 0.8;
+    color: var(--color-off-white);
 }
 
 /* =========================
@@ -1648,13 +1862,17 @@ body {
     font-weight: 500;
 }
 
+.site-footer span {
+    font-family: var(--font-body);
+
+}
 
 /* =========================
    FOOTER ITEMS
 ========================= */
 
 .site-footer__item {
-    white-space: nowrap;
+    white-space: nowrap;   
 }
 
 

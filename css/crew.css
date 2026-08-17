@@ -26,6 +26,11 @@ body {
 
 
 :root {
+
+    /* =========================
+       COLORS
+    ========================= */
+
     /* Primary */
     --color-red: #952323;
     --color-black: #272121;
@@ -40,6 +45,15 @@ body {
     --color-mustard: #D7A43B;
     --color-olive: #7E845A;
     --color-sage: #A8B18A;
+
+    /* =========================
+       FONTS
+    ========================= */
+
+    --font-body: "Outfit", sans-serif;
+    --font-heading: "Story Script", cursive;
+    --font-marker: "Permanent Marker", cursive;
+
 }
 
 
