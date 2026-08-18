@@ -50,18 +50,18 @@ body {
     --font-body: "Outfit", sans-serif;
     --font-heading: "Story Script", cursive;
     --font-marker: "Permanent Marker", cursive;
+    --font-title: "Anton", arial;
 
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-body);
     margin: 0;
     padding: 0;
     background-color: var(--color-beige);
     overflow-x: hidden;
 
 }
-
 
 /* =========================
    GENERAL SECTION
@@ -72,7 +72,6 @@ body {
     min-height: 100vh;
     padding: 5rem;
 }
-
 
 /* =========================
    BACK ALLEY
@@ -106,21 +105,21 @@ body {
 .back-alley__hero h1 {
     width: 100%;
 
-    margin: 0;
+    margin-top: 2rem;
 
     color: var(--color-blue);
 
-    font-family: Arial, sans-serif;
+    font-family: var(--font-title);
 
     font-size: clamp(4rem, 10vw, 9rem);
-    font-weight: 900;
+    font-weight: 400;
 
     line-height: 1;
 
     text-align: center;
 
     text-shadow:
-        8px 8px 4px rgba(0, 0, 0, 0.5);
+        6px 6px 0px rgba(12, 11, 11, 0.5);
 }
 
 
@@ -168,14 +167,14 @@ body {
     width: 100%;
 }
 
-.back-alley__chapter-heading p {
+.back-alley__chapter-heading h2 {
     margin: 0;
 
     color: var(--color-blue);
 
-    font-family: Arial, sans-serif;
+    font-family: var(--font-heading);
 
-    font-size: clamp(3rem, 5vw, 5rem);
+    font-size: clamp(3rem, 8vw, 8rem);
     font-weight: 900;
 
     line-height: 1;
@@ -191,7 +190,7 @@ body {
 .back-alley__body {
     width: 100%;
 
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5;
 
     word-break: break-word;
@@ -257,7 +256,7 @@ body {
 .back-alley__chapter--01
 .back-alley__chapter-heading {
     position: absolute;
-
+    
     left: 27px;
     right: 27px;
     bottom: 10px;
@@ -270,14 +269,14 @@ body {
 }
 
 .back-alley__chapter--01
-.back-alley__chapter-heading h1 {
+.back-alley__chapter-heading h2 {
     margin: 0;
 
     max-width: 100%;
 
-    color: var(--color-beige);
+    color: var(--color-off-white);
 
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3rem, 8vw, 8rem);
     line-height: 1.1;
 
     overflow-wrap: break-word;
@@ -306,8 +305,8 @@ body {
 }
 
 .back-alley__chapter--02
-.back-alley__chapter-heading p {
-    text-align: center;
+.back-alley__chapter-heading h2 {
+    text-align: right;
 }
 
 .back-alley__chapter-image-wrap {
@@ -428,7 +427,7 @@ body {
 }
 
 .back-alley__chapter--03
-.back-alley__chapter-heading p {
+.back-alley__chapter-heading h2 {
     font-size: clamp(3rem, 5vw, 4.5rem);
 }
 
@@ -468,7 +467,7 @@ body {
 }
 
 .back-alley__chapter--04
-.back-alley__chapter-heading p {
+.back-alley__chapter-heading h2 {
     text-align: right;
     margin-bottom: 2rem;
 }
@@ -567,8 +566,9 @@ body {
 }
 
 .back-alley__chapter--06
-.back-alley__chapter-heading p {
+.back-alley__chapter-heading h2 {
     text-align: center;
+    font-size: clamp(3rem, 7vw, 7rem);
 }
 
 .back-alley__banner-wrap {
@@ -696,10 +696,10 @@ body {
     padding: 10px;
 }
 
-.back-alley__photo-label span {
+.back-alley__photo-label h2 {
     color: var(--color-beige);
 
-    font-family: Arial, sans-serif;
+    font-family: var(--font-heading);
 
     font-size: clamp(4rem, 7vw, 6rem);
     font-weight: 900;
@@ -713,7 +713,7 @@ body {
 }
 
 .back-alley__caption {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5;
 
     word-break: break-word;
@@ -748,8 +748,9 @@ body {
 }
 
 .back-alley__chapter--08
-.back-alley__chapter-heading {
+.back-alley__chapter-heading h2{
     max-width: 1100px;
+    font-size: clamp(3rem, 5vw, 5rem);
 
     padding: 10px;
 }
@@ -808,7 +809,6 @@ body {
 
     align-items: center;
 
-    padding-bottom: 10rem;
 }
 
 .back-alley__visual {
@@ -845,8 +845,9 @@ body {
     z-index: 2;
 }
 
-.back-alley__heading-overlay p {
+.back-alley__heading-overlay h2 {
     margin: 0;
+    font-family: var(--font-heading);
 
     color: var(--color-blue);
 
@@ -890,7 +891,6 @@ body {
 
     width: 100%;
 
-    padding: 10px;
 }
 
 .back-alley__closing {

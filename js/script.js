@@ -31,8 +31,8 @@ const skidPositions = [
     },
 
     {
-        top: "95%",
-        left: "30%",
+        top: "75%",
+        left: "35%",
         rotation: "40deg"
     },
 
@@ -168,6 +168,45 @@ window.addEventListener(
     "scroll",
     updateSkidMarks
 );
+
+// =========================
+// START THE RIDE
+// =========================
+
+const startRide = document.querySelector("#start-ride");
+const kickOff = document.querySelector("#kick-off");
+
+if (startRide && kickOff) {
+
+    startRide.addEventListener("click", () => {
+
+        /* Scroll to Kick Off */
+        const targetPosition =
+            kickOff.getBoundingClientRect().top +
+            window.scrollY +
+            110;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+        });
+
+
+        /* Wait for the scroll to reach the section */
+        setTimeout(() => {
+
+            kickOff.classList.remove("kick-off-arrive");
+
+            /* Restart animation */
+            void kickOff.offsetWidth;
+
+            kickOff.classList.add("kick-off-arrive");
+
+        }, 700);
+
+    });
+
+}
 
 
 /* =========================

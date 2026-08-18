@@ -65,10 +65,29 @@ body {
     font-family: var(--font-body);
     margin: 0;
     padding: 0;
+    
     background-color: var(--color-beige);
-    overflow-x: hidden;
+    background-image: url("/assets/textures/texture.png");
+    background-repeat: repeat;
 
+    /* Increased tile size from 350px to 650px to make the texture flecks larger */
+    background-size: 500px 500px;
+    background-position: top left;
+
+    overflow-x: hidden;
 }
+
+/* Remove or comment out solid backgrounds in sections that should have texture */
+.hero,
+.eyes-here,
+.ride-transition,
+.kick-off,
+.b-side,
+.off-record,
+.roll-out {
+    background-color: transparent !important;
+}
+
 h3 {
     font-family: var(--font-body)
 }
@@ -196,23 +215,15 @@ span {
 
 .hero {
     position: relative;
-
     min-height: 90vh;
     padding-bottom: 100px;
-
     overflow: visible;
-
     z-index: 2;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-color: var(--color-beige);
-    background-image: url("assets/textures/paper-texture.png");
-    background-size: cover;
-    background-position: center;
 }
+
 
 .eyes-here {
     position: relative;
@@ -358,6 +369,13 @@ span {
 .eyes-here__header {
     margin-bottom: 0rem;
     transform: rotate(-2deg)
+    
+}
+
+.eyes-here__header h2 {
+    color: var(--color-mustard);
+    paint-order: stroke fill;
+    -webkit-text-stroke: 8px var(--color-red);
 }
 
 .eyes-here__header,
@@ -497,6 +515,51 @@ span {
     margin-bottom: 2%;
     text-align: left;
 }
+
+/* =========================
+   KICK OFF ARRIVAL
+========================= */
+
+.kick-off-arrive {
+    animation: kick-off-bounce 0.7s ease-out;
+}
+
+
+@keyframes kick-off-bounce {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+.transition-text {
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.transition-text:hover {
+    transform: translateY(-4px);
+    color: var(--color-red);
+}
+
 
 
 /* =========================
@@ -863,14 +926,25 @@ span {
     right: 10%;
 }
 
+.kick-off__text {
+    position: absolute;
+
+    width: 130px;
+
+    top: 38%;
+    right: 29%;
+}
+
 /* =========================
    BACK ALLEY LINK
 ========================= */
 
 .back-alley-link {
     width: 100%;
-    margin-top: 0px;
+
+    margin-top: 0;
     margin-bottom: 124px;
+
     padding-right: 5vw;
 
     display: flex;
@@ -879,6 +953,11 @@ span {
 
     box-sizing: border-box;
 }
+
+
+/* =========================
+   INTRO
+========================= */
 
 .back-alley-link__intro {
     width: 500px;
@@ -891,9 +970,17 @@ span {
     text-align: center;
 }
 
+
+/* =========================
+   ARROW
+========================= */
+
 .back-alley-link__arrow {
     display: block;
+
     width: 500px;
+
+    animation: back-alley-arrow 2.5s ease-in-out infinite;
 }
 
 .back-alley-link__arrow img {
@@ -905,10 +992,32 @@ span {
     transition: transform 0.3s ease;
 }
 
+
+/* =========================
+   AUTOMATIC MOVEMENT
+========================= */
+
+@keyframes back-alley-arrow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+}
+
+
+/* =========================
+   ORIGINAL HOVER EFFECT
+========================= */
+
 .back-alley-link__arrow:hover img {
     transform: translateX(12px);
 }
-
 
 
 /* =========================
@@ -1013,6 +1122,14 @@ span {
     top: 14%;
 
     z-index: 1;
+}
+
+.b-side__note {
+    position: absolute;
+    width: 210px;
+    right: -2%;
+    top: -15%;
+    z-index: -1;
 }
 
 .b-side__intro-content {
@@ -1134,13 +1251,7 @@ span {
 
     right: 21%;
     top: -12%;
-}
-
-.b-side__item--note {
-    width: 210px;
-    right: 1%;
-    top: 0%;
-    z-index: 1;
+    z-index: 5;
 }
 
 .b-side__item--music {
@@ -1454,8 +1565,8 @@ span {
 
     color: var(--color-orange);
 
-    -webkit-text-stroke: 0.5px var(--color-off-white);
-
+    paint-order: stroke fill;
+    -webkit-text-stroke: 4px var(--color-off-white);
     transform: rotate(-4deg);
 }
 
@@ -1468,7 +1579,8 @@ span {
 
     color: var(--color-orange);
 
-    -webkit-text-stroke: 0.5px var(--color-off-white);
+    paint-order: stroke fill;
+    -webkit-text-stroke: 4px var(--color-off-white);
 
     transform: rotate(-4deg);
 }
@@ -1639,6 +1751,7 @@ span {
     padding: 5rem 5vw;
 
     overflow: hidden;
+    gap: 0rem;
 }
 
 
@@ -1649,7 +1762,7 @@ span {
 .archive__heading {
     position: absolute;
 
-    top: 50%;
+    top: 47%;
     right: 5%;
 
     transform: translateY(-50%);
@@ -1671,9 +1784,10 @@ span {
 .archive__heading h2 {
 
     color: var(--color-beige);
+    margin: 0;
 
-    font-size: 3rem;
-    font-weight: 900;
+    font-size: 4rem;
+    font-weight: 1000;
 
     display: flex;
     flex-direction: column;
@@ -1911,8 +2025,47 @@ span {
     color: var(--color-beige);
 
     text-align: center;
+    text-decoration: underline;
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 6px;
 }
 
+/* =========================
+   CREW TAB
+========================= */
+
+.crew-tab {
+    text-align: center;
+}
+
+.crew-tab__link {
+    position: relative;
+    display: inline-block;
+    color: var(--color-black);
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+}
+
+.crew-tab__link::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border: 2px solid var(--color-red);
+
+    transform: scale(0.8) rotate(-2deg);
+    opacity: 0;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.crew-tab__link:hover::before {
+    transform: scale(1) rotate(-2deg);
+    opacity: 1;
+}
 
 /* =========================
    LEAVE A MARK
@@ -1920,16 +2073,12 @@ span {
 
 .leave-mark {
     position: relative;
-
     min-height: 120vh;
-
     background: var(--color-red);
-
     padding: 5rem 8vw;
-
     overflow: hidden;
+    cursor: crosshair;
 }
-
 
 /* =========================
    LEAVE A MARK INTRO
@@ -1937,10 +2086,9 @@ span {
 
 .leave-mark__intro {
     position: relative;
-
     z-index: 2;
+    pointer-events: none; /* Allows double-clicking anywhere around and through the text */
 }
-
 
 /* =========================
    LEAVE A MARK HEADING
@@ -1951,35 +2099,26 @@ span {
     align-items: center;
     gap: 1.2rem;
     margin-bottom: 2rem;
-
-
     transform: rotate(-2deg);
-
 }
 
 .leave-mark__dash {
     display: block;
-
     width: 38px;
     height: 7px;
-
     background: #171515;
-
     border-radius: 50%;
-
     transform: rotate(-3deg);
 }
 
 .leave-mark__heading h2 {
     margin: 0;
     color: var(--color-beige);
-
     font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 900;
-
     line-height: 1;
+    user-select: none;
 }
-
 
 /* =========================
    LEAVE A MARK DESCRIPTION
@@ -1987,13 +2126,133 @@ span {
 
 .leave-mark__intro p {
     margin: 1rem 0 0 58px;
-
     color: var(--color-beige);
-
     font-size: 1rem;
     line-height: 1.4;
+    user-select: none;
 }
 
+/* =========================
+   GRAFFITI FLOATING PALETTE
+========================= */
+
+.graffiti-toolbar {
+    position: absolute;
+    top: 3.5rem;
+    right: 8vw;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(23, 21, 21, 0.85);
+    backdrop-filter: blur(6px);
+    padding: 0.45rem 0.9rem;
+    border-radius: 40px;
+    border: 2px solid var(--color-beige, #f1ebd9);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.toolbar-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--color-beige, #f1ebd9);
+    margin-right: 0.3rem;
+    user-select: none;
+}
+
+.color-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.15);
+}
+
+.color-dot.is-active {
+    border-color: #fff;
+    transform: scale(1.25);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================
+   INLINE INPUT & GRAFFITI TAGS
+========================= */
+
+/* Inline typing input */
+.graffiti-inline-input {
+    position: absolute;
+    z-index: 30;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: none;
+    border-bottom: 2.5px dashed currentColor;
+    outline: none;
+    font-size: 1.4rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    
+    /* Width & wrapping constraints */
+    width: max-content;
+    max-width: 300px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    caret-color: currentColor;
+}
+
+/* Placed graffiti tags on the wall */
+.graffiti-tag {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    font-weight: 800;
+    line-height: 1.15;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    will-change: transform;
+
+    /* Width & wrapping constraints */
+    width: max-content;
+    max-width: 300px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Toolbar Divider & Font Dropdown */
+.toolbar-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(241, 235, 217, 0.3);
+    margin: 0 0.3rem;
+}
+
+.font-dropdown {
+    background: #171515;
+    color: var(--color-beige, #f1ebd9);
+    border: 1.5px solid var(--color-beige, #f1ebd9);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.font-dropdown option {
+    background: #171515;
+    color: var(--color-beige, #f1ebd9);
+}
 /* =========================
    ROLL OUT
 ========================= */

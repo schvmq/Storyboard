@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Permanent+Marker&family=Story+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Permanent+Marker&family=Rock+Salt&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
@@ -156,7 +157,7 @@
                 </p>
             </div>
             
-            <div class="transition-text">
+            <div class="transition-text" id="start-ride">
                 <p>Start the ride?</p>
             </div>
 
@@ -172,7 +173,7 @@
         <!-- =========================
              KICK OFF
         ========================== -->
-        <section class="kick-off">
+        <section class="kick-off" id="kick-off">
 
             <div class="kick-off__content">
 
@@ -326,6 +327,11 @@
                     src="assets/images/gif.gif" alt=""
                 >
 
+                <img 
+                    class="kick-off__text"
+                    src="assets/images/text.svg" alt=""
+                >
+
             </div>
 
             <div class="skid-mark" aria-hidden="true">
@@ -343,7 +349,7 @@
                 Want to know that guy behind the board?
             </p>
 
-            <a href="back-alley.html" class="back-alley-link__arrow">
+            <a href="backalley.html" class="back-alley-link__arrow">
                 <img
                     src="assets/images/back-alley-arrow.png"
                     alt="Take a walk down the back alley"
@@ -399,6 +405,12 @@
                 <div class="b-side__board-note">
                     
                     <div class="b-side__note-content">
+                        <img
+                            class="b-side__note"
+                            src="assets/images/note.png"
+                            alt="Keio's note"
+                        >
+
                         <p>
                             Currently:
                         </p>
@@ -534,21 +546,6 @@
                     </div>
                 </div>
 
-                <div class="b-side__item b-side__item--note">
-                    <img
-                        src="assets/images/note.png"
-                        alt="Keio's note"
-                    >
-                    <div class="b-side__item-info">
-                        <h3>Guitar</h3>
-                        <p>
-                            One of Keio's longtime hobbies.
-                            He picked it up through his family's
-                            love for music.
-                        </p>
-                    </div>
-                </div>
-
                 <div class="b-side__item b-side__item--glasses">
                     <img
                         src="assets/images/glasses.png"
@@ -584,6 +581,11 @@
                         src="assets/images/music.png"
                         alt="Music"
                     >
+
+                    <audio id="keio-audio" preload="metadata">
+                        <source src="assets/music/keio-playlist-song.mp3" type="audio/mpeg">
+                    </audio>
+
                     <div class="b-side__item-info">
                         <h3>Guitar</h3>
                         <p>
@@ -1078,17 +1080,17 @@
 
         <section class="crew-tab">
             <p>A story is not made alone. Meet</p>
-            <h2>THE CREW</h2>
+            <a href="crew.html" class="crew-tab__link">
+                <h2>THE CREW</h2>
+            </a>
         </section>
 
         <!-- =========================
             LEAVE A MARK
         ========================== -->
-
-        <section class="leave-mark">
+        <section class="leave-mark" id="leaveMarkSection">
 
             <div class="leave-mark__intro">
-
                 <div class="leave-mark__heading">
                     <span class="leave-mark__dash"></span>
                     <h2>LEAVE A MARK</h2>
@@ -1098,14 +1100,32 @@
                     You've made it this far. Might as well write something?<br>
                     Double click to write.
                 </p>
-
             </div>
             
             <div class="skid-mark" aria-hidden="true">
-
                 <span class="skid-mark__line skid-mark__line--01"></span>
                 <span class="skid-mark__line skid-mark__line--02"></span>
+            </div>
 
+            <!-- Floating Graffiti Toolbar -->
+            <div class="graffiti-toolbar" id="graffitiToolbar">
+                <!-- Font Selector -->
+                <span class="toolbar-label">FONT:</span>
+                <select id="graffitiFontSelect" class="font-dropdown">
+                    <option value="'Permanent Marker', cursive">Marker</option>
+                    <option value="'Rock Salt', cursive">Rock Salt</option>
+                    <option value="'Covered By Your Grace', cursive">Scratch</option>
+                </select>
+
+                <div class="toolbar-divider"></div>
+
+                <!-- Ink Color Picker -->
+                <span class="toolbar-label">INK:</span>
+                <button type="button" class="color-dot is-active" data-color="#1E1E1E" style="background: #1E1E1E;" title="Charcoal"></button>
+                <button type="button" class="color-dot" data-color="#C72C2C" style="background: #C72C2C;" title="Red"></button>
+                <button type="button" class="color-dot" data-color="#F2780C" style="background: #F2780C;" title="Orange"></button>
+                <button type="button" class="color-dot" data-color="#4E8752" style="background: #4E8752;" title="Green"></button>
+                <button type="button" class="color-dot" data-color="#FFFFFF" style="background: #FFFFFF;" title="Chalk White"></button>
             </div>
 
         </section>
@@ -1217,7 +1237,9 @@
 
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/script.js"></script>
+    <script src="js/leave-mark.js"></script>
 
 </body>
 </html>

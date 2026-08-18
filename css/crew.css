@@ -53,6 +53,7 @@ body {
     --font-body: "Outfit", sans-serif;
     --font-heading: "Story Script", cursive;
     --font-marker: "Permanent Marker", cursive;
+    --font-title: "Anton", arial;
 
 }
 
@@ -67,6 +68,9 @@ body {
     padding: 5rem;
 }
 
+h3, p {
+    font-family: var(--font-body)
+}
 
 
 /* =========================
@@ -102,8 +106,9 @@ body {
 
     color: var(--color-blue);
 
-    font-size: clamp(3rem, 6vw, 6rem);
-    font-weight: 900;
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 400;
 
     line-height: 1;
 
@@ -111,18 +116,19 @@ body {
 }
 
 .crew__heading p {
-    margin: 0.8rem 0 0;
+    margin: 1rem 0 0;
 
     color: var(--color-mustard);
 
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    font-weight: 700;
-
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 5vw, 5rem);
     font-style: italic;
 
     line-height: 1;
 
     text-shadow: 2px 2px 0 #111;
+
+    transform: rotate(-2deg)
 }
 
 
@@ -182,12 +188,14 @@ body {
 .crew-member__polaroid h2 {
     margin: 0.45rem 0 0;
 
-    color: var(--red);
+    color: var(--color-red);
 
+    font-family: var(--font-marker);
     font-size: 1.25rem;
     font-weight: 900;
 
     line-height: 1;
+    z-index: 5;
 
     text-align: center;
 }
@@ -247,7 +255,7 @@ body {
 
     color: var(--color-mustard);
 
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -256,7 +264,7 @@ body {
 
     color: var(--color-off-white);
 
-    font-size: 0.72rem;
+    font-size: 0.9rem;
     line-height: 1.45;
 }
 
