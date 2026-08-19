@@ -216,3 +216,42 @@ if (startRide && kickOff) {
 setSkidPositions();
 
 updateSkidMarks();
+
+
+/* ==========================================
+   SCRAPBOOK DESKTOP CANVAS AUTO-SCALE
+========================================== */
+
+function autoScaleScrapbookCanvas() {
+    const canvas = document.querySelector('.desktop-canvas');
+    if (!canvas) return;
+
+    const baseWidth = 1100; // Target design width
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < baseWidth) {
+        const scale = screenWidth / baseWidth;
+        canvas.style.transform = `scale(${scale})`;
+        canvas.style.transformOrigin = 'top left';
+        canvas.style.width = `${baseWidth}px`;
+        // Adjust height so space beneath doesn't collapse or create dead gaps
+        canvas.parentElement.style.minHeight = 'auto';
+        canvas.style.marginBottom = `-${(1 - scale) * canvas.offsetHeight}px`;
+    } else {
+        canvas.style.transform = 'none';
+        canvas.style.marginBottom = '0px';
+    }
+}
+
+function syncCanvasHeight() {
+    const canvas = document.querySelector('.desktop-canvas');
+    if (!canvas) return;
+    const scale = Math.min(1, window.innerWidth / 1100);
+    canvas.style.transform = `scale(${scale})`;
+    canvas.style.transformOrigin = 'top left';
+    canvas.style.marginBottom = scale < 1 ? `-${(1 - scale) * canvas.scrollHeight}px` : '0px';
+}
+
+window.addEventListener('resize', syncCanvasHeight);
+window.addEventListener('DOMContentLoaded', syncCanvasHeight);
+window.addEventListener('load', syncCanvasHeight);

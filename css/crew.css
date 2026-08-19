@@ -314,3 +314,99 @@ h3, p {
 .site-footer__item {
     white-space: nowrap;
 }
+
+
+/* ==========================================
+   THE CREW — MOBILE RESPONSIVE (<= 768px)
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* --- CREW PAGE CONTAINER --- */
+    .crew {
+        min-height: auto;
+        padding: 4rem 1.5rem 5rem;
+    }
+
+    /* --- HEADING --- */
+    .crew__heading {
+        margin: 3rem auto 4rem;
+    }
+
+    .crew__heading h1 {
+        font-size: clamp(3rem, 12vw, 4.5rem);
+    }
+
+    .crew__heading p {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        margin-top: 0.5rem;
+    }
+
+    /* --- MEMBERS CONTAINER (FLEX STACK) --- */
+    .crew__members {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4.5rem; /* Clean vertical spacing between polaroids */
+        min-height: auto;
+        margin-top: 0;
+    }
+
+    /* --- CREW MEMBER CARDS (RESET ABSOLUTE POSITIONING) --- */
+    .crew-member {
+        position: static !important;
+        width: 100%;
+        max-width: 290px;
+        margin: 0 auto;
+    }
+
+    /* Reset individual desktop top/left offsets */
+    .crew-member--klee,
+    .crew-member--primo,
+    .crew-member--elijah {
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+    /* Polaroid adjustments */
+    .crew-member__polaroid {
+        width: 200px;
+    }
+
+    .crew-member__polaroid h2 {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Info text below polaroid */
+    .crew-member__info {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 1.2rem;
+    }
+
+    .crew-member__info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .crew-member__info p {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+    /* --- SITE FOOTER --- */
+    .site-footer {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.4rem 1.2rem;
+        padding: 0.6rem 1rem;
+        flex-wrap: wrap;
+    }
+
+    .site-footer__item {
+        font-size: 0.72rem;
+    }
+
+}
