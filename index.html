@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>Storyboard — Keio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛹</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,20 +13,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Permanent+Marker&family=Rock+Salt&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
     <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="main-page">
+    <!-- Red Flash Overlay -->
+    <div id="flashOverlay"></div>
+
+    <!-- =========================
+        MAIN PAGE NAVBAR
+    ========================== -->
+    <header class="main-nav" id="mainNav">
+        <div class="main-nav__container">
+            <a href="#storyboard" class="main-nav__logo">KEIO <span>★</span></a>
+
+            <nav class="main-nav__links">
+                <a href="#kick-off">PROFILE</a>
+                <a href="backalley.html">STORY</a>
+                <a href="crew.html">CREW</a>
+                <a href="#roll-out">CONTACT</a>
+            </nav>
+        </div>
+    </header>
 
     <main>
 
         <!-- =========================
              STORYBOARD / HERO
         ========================== -->
-        <section id="storyboard" class="hero">
+        <section id="storyboard" class="hero" data-section="hero" data-theme="beige">
 
             <div class="hero__splash hero__splash--top">
                 <img src="assets/images/splash.png" alt="">
@@ -71,7 +90,7 @@
         <!-- =========================
              EYES HERE
         ========================== -->
-        <section id="eyes-here" class="section eyes-here">
+        <section id="eyes-here" class="section eyes-here"  data-section="eyes" data-theme="beige">
 
             <div class="eyes-here__wrapper">
 
@@ -148,7 +167,7 @@
 
         </section>
 
-        <section class="ride-transition">
+        <section class="ride-transition"  data-section="eyes" data-theme="beige">
             <div class="quote">
                 <p>
                     Hop on. You're about to take a ride.<br>
@@ -166,11 +185,12 @@
     
         </section>
 
-            <div class="desktop-canvas">
+        <div class="desktop-canvas">
+
             <!-- =========================
                 KICK OFF
             ========================== -->
-            <section class="kick-off" id="kick-off">
+            <section class="kick-off" id="kick-off"  data-section="kick-off" data-theme="beige">
 
                 <div class="kick-off__content">
 
@@ -227,7 +247,8 @@
                                 <span class="profile__icon">●</span>
                                 <div>
                                     <span>OCCUPATION:</span>
-                                    <strong>Web developer<br>Boyfriend-to-be</strong>
+                                    <strong>Web developer</strong>
+                                    <strong class="bf">Boyfriend for hire</strong>
                                 </div>
                             </div>
 
@@ -340,7 +361,7 @@
 
             </section>
 
-            <section class="back-alley-link">
+            <section class="back-alley-link"  data-section="eyes" data-theme="beige">
 
                 <p class="back-alley-link__intro">
                     Want to know that guy behind the board?
@@ -361,7 +382,7 @@
             ========================== -->
 
 
-            <section class="b-side">
+            <section class="b-side"  data-section="b-side" data-theme="beige">
 
                 <div class="b-side__heading">
                     <span>02</span>
@@ -430,11 +451,9 @@
                             alt="Keys"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Keys</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                Keys. What else?
                             </p>
                         </div>
                     </div>
@@ -445,11 +464,10 @@
                             alt="Hat"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Hats</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                Umbrella? Nah. He’d rather wear a cap and call it a day than carry an umbrella around. 
+                                Well... unless the weather app says it’s definitely going to rain.
                             </p>
                         </div>
                     </div>
@@ -460,11 +478,10 @@
                             alt="Keio's everyday essentials"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Essentials</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                His essentials. He genuinely feels incomplete without his watch 
+                                and somehow always has a handkerchief on him. 
                             </p>
                         </div>
                     </div>
@@ -475,11 +492,10 @@
                             alt="Books"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Books</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                Larp. He’s actually more of a comic guy than a nonfiction-book guy. 
+                                There are a lot of stories he likes, but if he had to recommend one, it’d be Seasons of Blossom. Classic.
                             </p>
                         </div>
                     </div>
@@ -490,7 +506,7 @@
                             alt="Ticket"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Movie</h3>
                             <p>
                                 Keio isn't really a movie person. He mostly puts movies on when he's bored or as a background noise while cleaning or doing something. 
                                 So he can't really claim a favorite, but for the sake of conversation, a movie that he'd recommend would be Viva la Vida and Oldboy.
@@ -504,11 +520,11 @@
                             alt="Guitar pick"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Guitar Pick</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                A guitar pick he treasures because his father gave it to him when he first started learning guitar. 
+                                Fun fact: his dad can play almost all instruments. 
+                                Keio actually started with piano before eventually picking up the guitar.
                             </p>
                         </div>
                     </div>
@@ -519,11 +535,11 @@
                             alt="Mechanical keyboard"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Keeb</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                Ah, yes. The mechanical keyboard. He’s in IT, after all. 
+                                He somehow managed to accumulate way too many of these before realizing he probably didn't need another one. 
+                                Now he’s settled on collecting keycaps instead. Late realization, I know.
                             </p>
                         </div>
                     </div>
@@ -534,11 +550,11 @@
                             alt="Keio's pets"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Pets</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                His pets are Jayvee, a husky, and Nowa, a Persian cat. 
+                                Jayvee stayed with the family in Cebu, while Nowa came into Keio’s life when he started feeling a little too alone in his Manila condo. 
+                                So, yeah—Nowa is basically his tiny roommate.
                             </p>
                         </div>
                     </div>
@@ -549,11 +565,10 @@
                             alt="Glasses"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Glasses</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                He actually has 20/20 eyesight. He just wears glasses when gaming. 
+                                And because it looks good on him. Lol.
                             </p>
                         </div>
                     </div>
@@ -564,11 +579,11 @@
                             alt="Gaming"
                         >
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Games</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                A controller he barely uses anymore because he’s more of a PC gamer these days. 
+                                It only really gets brought back into action when he plays Wuthering Waves. 
+                                His current rotation is Valorant, osu!, and Wuwa.
                             </p>
                         </div>
                     </div>
@@ -579,16 +594,18 @@
                             alt="Music"
                         >
 
-                        <audio id="keio-audio" preload="metadata">
-                            <source src="assets/music/keio-playlist-song.mp3" type="audio/mpeg">
-                        </audio>
+                        <iframe 
+                            id="sc-player" 
+                            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/woodnation16/sets/locked-in-gym-motivation-hip&auto_play=false&show_artwork=false" 
+                            style="position: fixed; top: -9999px; left: -9999px; width: 100px; height: 100px; opacity: 0; pointer-events: none; border: 0;" 
+                            allow="autoplay; encrypted-media">
+                        </iframe>
 
                         <div class="b-side__item-info">
-                            <h3>Guitar</h3>
+                            <h3>Music</h3>
                             <p>
-                                One of Keio's longtime hobbies.
-                                He picked it up through his family's
-                                love for music.
+                                Can't go out without his beloved inpods. Click to play a song
+                                —diving you in to Keio's go-to playlist when driving on his way to work.
                             </p>
                         </div>
                     </div>
@@ -601,6 +618,14 @@
                         src="assets/images/skateboard.png"
                         alt="Keio's skateboard"
                     >
+
+                    <div class="b-side__item-info">
+                            <h3>Skateboard</h3>
+                            <p>
+                                The oldest skateboard he owns that’s still alive and kicking. 
+                                He left this one behind in Cebu, so it’s basically retired for now—but he refuses to let it go.
+                            </p>
+                    </div>
                 </div>
 
                 <!-- DECORATION -->
@@ -646,7 +671,7 @@
             <!-- =========================
                 OFF THE RECORD
             ========================== -->
-            <section class="off-record">
+            <section class="off-record"  data-section="off-record" data-theme="beige">
 
                 <div class="off-record__heading">
 
@@ -710,7 +735,7 @@
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. 
+                                    He takes his morning routine seriously. Six AM, make the bed, exercise, shower, eat—then he can finally rot in front of his computer guilt-free.
                                 </p>
                             </div>
                         </div>
@@ -724,7 +749,7 @@
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    “I hate wasting an entire day.” If he wakes up late, he genuinely feels like he already lost half the day. Basically hates being unproductive.
                                 </p>
                             </div>
                         </div>
@@ -732,13 +757,13 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-yellow.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    Fresh bedsheets are unmatched. He'd rather sleep on the floor than lie down on his bed while still wearing clothes from outside.
                                 </p>
                             </div>
                         </div>
@@ -746,13 +771,13 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-yellow.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    Likes having plans, even if the plan is doing absolutely nothing. Google calendar is basically his best friend.
                                 </p>
                             </div>
                         </div>
@@ -760,13 +785,13 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-blue.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    Will complain about being tired while actively refusing to stop doing things.
                                 </p>
                             </div>
                         </div>
@@ -779,13 +804,27 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-yellow.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. 
+                                    He can eat stupidly spicy food and then act like everything is completely fine. His tolerance is either impressive or concerning.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="off-record__fact-block">
+                            <img
+                                class="off-record__file-image"
+                                src="assets/images/file-blue.svg"
+                                alt=""
+                            >
+
+                            <div class="off-record__fact-content">
+                                <p>
+                                    He likes early mornings but sleeps late. Somehow, this contradiction has survived for years.
                                 </p>
                             </div>
                         </div>
@@ -799,7 +838,21 @@
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    He'd rather figure something out himself first. Asking for help is usually Plan B.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="off-record__fact-block">
+                            <img
+                                class="off-record__file-image"
+                                src="assets/images/file-yellow.svg"
+                                alt=""
+                            >
+
+                            <div class="off-record__fact-content">
+                                <p>
+                                    Spice tolerance aside, he basically has a high tolerance for everything. Alcohol? Pain? Caffeine? Name it. That is, except for matcha, his bowel movement says otherwise.
                                 </p>
                             </div>
                         </div>
@@ -813,35 +866,7 @@
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="off-record__fact-block">
-                            <img
-                                class="off-record__file-image"
-                                src="assets/images/file-red.svg"
-                                alt=""
-                            >
-
-                            <div class="off-record__fact-content">
-                                <p>
-                                    Your first fact goes here.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="off-record__fact-block">
-                            <img
-                                class="off-record__file-image"
-                                src="assets/images/file-red.svg"
-                                alt=""
-                            >
-
-                            <div class="off-record__fact-content">
-                                <p>
-                                    Your first fact goes here.
+                                    An expert at getting on people's nerves while remaining completely unbothered.
                                 </p>
                             </div>
                         </div>
@@ -853,13 +878,27 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-blue.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. Your first fact goes here. 
+                                    He and his second sister have an ongoing high-score war. 2048, Sudoku, whatever—if there's a leaderboard, someone's getting dethroned.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="off-record__fact-block">
+                            <img
+                                class="off-record__file-image"
+                                src="assets/images/file-yellow.svg"
+                                alt=""
+                            >
+
+                            <div class="off-record__fact-content">
+                                <p>
+                                    Will try almost anything once if it looks remotely interesting. That's how he somehow ended up collecting hobbies like they're side quests.
                                 </p>
                             </div>
                         </div>
@@ -873,7 +912,7 @@
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    He doesn't mind failing. What actually gets under his skin is knowing he could have done better and choosing not to.
                                 </p>
                             </div>
                         </div>
@@ -881,13 +920,13 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-blue.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
+                                    Give him a game based entirely on skill and he'll probably do fine. Give him a 50:50 chance and suddenly he's fighting for his life. Don't even know why he still plays Wuwa at this point.
                                 </p>
                             </div>
                         </div>
@@ -895,27 +934,13 @@
                         <div class="off-record__fact-block">
                             <img
                                 class="off-record__file-image"
-                                src="assets/images/file-red.svg"
+                                src="assets/images/file-yellow.svg"
                                 alt=""
                             >
 
                             <div class="off-record__fact-content">
                                 <p>
-                                    Your first fact goes here.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="off-record__fact-block">
-                            <img
-                                class="off-record__file-image"
-                                src="assets/images/file-red.svg"
-                                alt=""
-                            >
-
-                            <div class="off-record__fact-content">
-                                <p>
-                                    Your first fact goes here.
+                                    He owns clothes in several colors but somehow keeps reaching for white shirts.
                                 </p>
                             </div>
                         </div>
@@ -981,7 +1006,7 @@
                 ARCHIVE
             ========================== -->
 
-            <section class="archive">
+            <section class="archive"  data-section="archive" data-theme="black">
 
                 <!-- ARCHIVE HEADING -->
 
@@ -1085,7 +1110,7 @@
             <!-- =========================
                 LEAVE A MARK
             ========================== -->
-            <section class="leave-mark" id="leaveMarkSection">
+            <section class="leave-mark" id="leaveMarkSection"  data-section="leave-a-mark" data-theme="red">
 
                 <div class="leave-mark__intro">
                     <div class="leave-mark__heading">
@@ -1120,9 +1145,9 @@
                     <span class="toolbar-label">INK:</span>
                     <button type="button" class="color-dot is-active" data-color="#1E1E1E" style="background: #1E1E1E;" title="Charcoal"></button>
                     <button type="button" class="color-dot" data-color="#C72C2C" style="background: #C72C2C;" title="Red"></button>
-                    <button type="button" class="color-dot" data-color="#F2780C" style="background: #F2780C;" title="Orange"></button>
-                    <button type="button" class="color-dot" data-color="#4E8752" style="background: #4E8752;" title="Green"></button>
-                    <button type="button" class="color-dot" data-color="#FFFFFF" style="background: #FFFFFF;" title="Chalk White"></button>
+                    <button type="button" class="color-dot" data-color="#6B86A6" style="background: #6B86A6;" title="Blue"></button>
+                    <button type="button" class="color-dot" data-color="#D7A43B" style="background: #D7A43B;" title="Mustard"></button>
+                    <button type="button" class="color-dot" data-color="#F8F5EF" style="background: #F8F5EF;" title="Off White"></button>
                 </div>
 
             </section>
@@ -1133,7 +1158,7 @@
             ROLL OUT
         ========================== -->
 
-        <section class="roll-out">
+        <section class="roll-out" id="roll-out"  data-section="roll-out" data-theme="beige">
 
             <div class="roll-out__content">
 
@@ -1158,43 +1183,42 @@
 
                     <div class="roll-out__social-row">
 
-                        <a href="#" class="roll-out__social" aria-label="X">
+                        <a href="https://x.com/skei8r" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="X">
                             <i class="fa-brands fa-x-twitter"></i>
                         </a>
 
-                        <a href="#" class="roll-out__social" aria-label="Telegram">
+                        <a href="https://t.me/skei8r" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="Telegram">
                             <i class="fa-brands fa-telegram"></i>
                         </a>
 
-                        <a href="#" class="roll-out__social" aria-label="Instagram">
+                        <a href="https://instagram.com/skei8r" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="Instagram">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
 
-                        <a href="#" class="roll-out__social" aria-label="TikTok">
+                        <a href="https://tiktok.com/@kr.ven" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="TikTok">
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
-
                     </div>
 
 
                     <div class="roll-out__social-row">
 
-                        <a href="#" class="roll-out__social" aria-label="Spotify">
+                        <a href="https://open.spotify.com/user/3163al7sw53wcshjlhcshtomxe6q?si=2a922cc6d0294c4e" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="Spotify">
                             <i class="fa-brands fa-spotify"></i>
                         </a>
 
-                        <a href="#" class="roll-out__social" aria-label="Discord">
+                        <a href="https://discord.gg/mSUTWGvapV" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="Discord">
                             <i class="fa-brands fa-discord"></i>
                         </a>
 
-                        <a href="#" class="roll-out__social" aria-label="Other">
+                        <a href="https://retrospring.net/@skei8r" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="Other Link">
                             <i class="fa-solid fa-link"></i>
                         </a>
 
-                        <a href="#" class="roll-out__social" aria-label="Steam">
-                            <i class="fa-brands fa-github"></i>
+                        <!-- For Steam -->
+                        <a href="https://steamcommunity.com/id/yourusername" target="_blank" rel="noopener noreferrer" class="roll-out__social" aria-label="Steam">
+                            <i class="fa-brands fa-steam"></i>
                         </a>
-
                     </div>
 
                 </div>
@@ -1236,7 +1260,45 @@
 
     </main>
 
+    <div
+        class="storyboard-tracker"
+        aria-hidden="true"
+        >
+        <img
+            src="assets/images/skateboard.svg"
+            alt=""
+        >
+    </div>
+
+    <!-- FLOATING MUSIC CONTROLLER -->
+    <div class="music-floating-bar" id="musicFloatingBar">
+        <div class="music-floating-bar__now-playing">
+            <span class="music-floating-bar__dot"></span>
+            <span class="music-floating-bar__title" id="musicTrackTitle">Playlist ready</span>
+        </div>
+
+        <div class="music-floating-bar__controls">
+            <button type="button" class="music-btn" id="musicPrevBtn" aria-label="Previous Track">
+                <i class="fa-solid fa-backward-step">&#9198;</i>
+            </button>
+
+            <button type="button" class="music-btn music-btn--play" id="musicPlayToggleBtn" aria-label="Play or Pause">
+                <i class="fa-solid fa-play" id="musicPlayIcon">&#9658;</i>
+            </button>
+
+            <button type="button" class="music-btn" id="musicNextBtn" aria-label="Next Track">
+                <i class="fa-solid fa-forward-step">&#9197;</i>
+            </button>
+
+            <select class="music-playlist-select" id="musicPlaylistSelect" title="Select a song">
+                <option value="" disabled selected>Select song...</option>
+            </select>
+        </div>
+    </div>
+
+        
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="js/script.js"></script>
     <script src="js/leave-mark.js"></script>
 

@@ -57,6 +57,18 @@ body {
 
 }
 
+/* =========================
+   INITIAL PAGE LOAD FADE-IN
+========================= */
+
+body {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
 
 /* =========================
    GENERAL SECTION
@@ -65,7 +77,7 @@ body {
 .section {
     position: relative;
     min-height: 100vh;
-    padding: 5rem;
+    padding: 2rem;
 }
 
 h3, p {
@@ -90,45 +102,144 @@ h3, p {
     overflow: hidden;
 }
 
-
 /* =========================
-   CREW HEADING
+   CREW HEADING (SKATE GRIND + DELAYED STICKER SLAP)
 ========================= */
 
 .crew__heading {
     text-align: center;
-
-    margin: 12rem auto 8rem;
+    margin: 12rem auto 0rem;
 }
 
+/* --- 1. SKATE GRIND SLIDE ON H1 --- */
 .crew__heading h1 {
     margin: 0;
 
     color: var(--color-blue);
-
     font-family: var(--font-title);
     font-size: clamp(3rem, 8vw, 8rem);
     font-weight: 400;
 
     line-height: 1;
-
     text-shadow: 4px 4px 0 #111;
+
+    /* Initial hidden off-center skate state */
+    opacity: 0;
+    transform: translateX(-120px) skewX(-10deg) rotate(-4deg);
+    transition: 
+        opacity 0.4s ease-out,
+        transform 0.65s cubic-bezier(0.05, 0.9, 0.2, 1.05);
+    will-change: transform, opacity;
 }
 
+body.page-loaded .crew__heading h1 {
+    opacity: 1;
+    transform: translateX(0) skewX(0deg) rotate(0deg);
+    transition-delay: 0.2s;
+}
+
+/* --- 2. DELAYED STICKER SLAP ON P --- */
 .crew__heading p {
     margin: 1rem 0 0;
 
     color: var(--color-mustard);
-
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 5vw, 5rem);
     font-style: italic;
 
     line-height: 1;
-
     text-shadow: 2px 2px 0 #111;
 
-    transform: rotate(-2deg)
+    /* Initial oversized slap state */
+    opacity: 0;
+    transform: scale(1.4) rotate(-10deg) translateY(-20px);
+    transition: 
+        opacity 0.25s ease-out,
+        transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, opacity;
+}
+
+body.page-loaded .crew__heading p {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg) translateY(0);
+    transition-delay: 0.75s; /* Slaps down right after the h1 settles */
+}
+
+/* ==========================================
+   BACK BUTTON (CREW & BACK ALLEY)
+========================================== */
+
+.nav-back-btn {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 9999;
+    
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    
+    padding: 0.5rem 1.2rem;
+    
+    background-color: var(--color-black, #272121);
+    color: var(--color-beige, #EFE4CF);
+    
+    font-family: var(--font-marker);
+    font-size: 1.2rem;
+    text-decoration: none;
+    line-height: 1;
+    
+    box-shadow: 4px 4px 0 var(--color-red, #952323);
+    
+    transform: translateY(0) rotate(-3deg);
+    opacity: 1;
+    visibility: visible;
+    
+    transition: 
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        box-shadow 0.2s ease-out, 
+        background-color 0.2s ease;
+}
+
+/* Hidden state when scrolling down */
+.nav-back-btn.is-hidden {
+    transform: translateY(-80px) rotate(-3deg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.nav-back-btn:hover {
+    transform: translateY(-4px) rotate(0deg);
+    box-shadow: 6px 6px 0 var(--color-red, #952323);
+    background-color: var(--color-red, #952323);
+    color: var(--color-beige, #EFE4CF);
+}
+
+.nav-back-btn i {
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 768px) {
+    .nav-back-btn {
+        top: 16px;
+        left: 16px;
+        padding: 0.4rem 1rem;
+        font-size: 1rem;
+        box-shadow: 3px 3px 0 var(--color-red, #952323);
+    }
+
+    .nav-back-btn.is-hidden {
+        transform: translateY(-60px) rotate(-3deg);
+    }
+    
+    .nav-back-btn i {
+        font-size: 0.85rem;
+    }
 }
 
 
@@ -302,7 +413,8 @@ h3, p {
     color: var(--color-off-white);
 
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 300;
+    font-family: var(--font-body);
     
 }
 
@@ -316,6 +428,76 @@ h3, p {
 }
 
 
+
+/* =========================
+   SECTION SCROLL TRANSITIONS
+========================= */
+
+[data-section] {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+[data-section].is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body[data-theme="beige"] {
+    background-color: var(--color-beige);
+}
+
+body[data-theme="red"] {
+    background-color: var(--color-red);
+}
+
+body[data-theme="black"] {
+    background-color: var(--color-black);
+}
+
+/* =========================
+   THEME OVERLAY
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -100;
+
+    background-color: var(--color-beige);
+
+    opacity: 1;
+
+    pointer-events: none;
+
+    transition:
+        background-color 0.8s ease,
+        opacity 0.8s ease;
+}
+
+body[data-theme="beige"]::before {
+    background-color: var(--color-beige);
+}
+
+body[data-theme="red"]::before {
+    background-color: var(--color-red);
+}
+
+body[data-theme="black"]::before {
+    background-color: var(--color-black);
+}
+
+
+
+
 /* ==========================================
    THE CREW — MOBILE RESPONSIVE (<= 768px)
 ========================================== */
@@ -325,21 +507,28 @@ h3, p {
     /* --- CREW PAGE CONTAINER --- */
     .crew {
         min-height: auto;
-        padding: 4rem 1.5rem 5rem;
+        padding: 0 1.5rem 4rem; /* Removed top padding so the heading fits 100dvh cleanly */
     }
 
-    /* --- HEADING --- */
+    /* --- FULL-SCREEN TITLE SCREEN --- */
     .crew__heading {
-        margin: 3rem auto 4rem;
+        min-height: 100dvh; /* Full mobile screen height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .crew__heading h1 {
-        font-size: clamp(3rem, 12vw, 4.5rem);
+        font-size: clamp(4rem, 12vw, 4.5rem);
+        margin: 0;
     }
 
     .crew__heading p {
-        font-size: clamp(1.2rem, 5vw, 1.8rem);
-        margin-top: 0.5rem;
+        font-size: clamp(2rem, 5vw, 1.8rem);
+        margin: 0.5rem 0 0;
     }
 
     /* --- MEMBERS CONTAINER (FLEX STACK) --- */
@@ -371,7 +560,7 @@ h3, p {
 
     /* Polaroid adjustments */
     .crew-member__polaroid {
-        width: 200px;
+        width: 180px;
     }
 
     .crew-member__polaroid h2 {
@@ -392,8 +581,9 @@ h3, p {
     }
 
     .crew-member__info p {
-        font-size: 0.88rem;
+        font-size: 0.8rem;
         line-height: 1.5;
+        font-weight: 300;
     }
 
     /* --- SITE FOOTER --- */

@@ -1,3 +1,4 @@
+
 /* =========================
    RESET
 ========================= */
@@ -50,6 +51,132 @@ html, body {
 
 }
 
+
+/* ==========================================
+   RED FLASH LOAD EFFECT
+========================================== */
+
+#flashOverlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-red, #952323);
+    z-index: 2147483647;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body.page-loaded #flashOverlay {
+    opacity: 0;
+}
+
+/* ==========================================
+   MAIN NAVBAR (RED TAPE / PERMANENT MARKER)
+========================================== */
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 9999;
+    
+    background-color: var(--color-red, #952323);
+    border-bottom: 3px solid var(--color-black, #272121);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    
+    transition: 
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+/* Hides when scrolling down */
+.main-nav.is-hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.main-nav__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.6rem 2rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-nav__logo {
+    font-family: var(--font-marker);
+    font-size: 1.5rem;
+    color: var(--color-off-white, #F8F5EF);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transform: rotate(-2deg);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.main-nav__logo span {
+    color: var(--color-mustard, #D7A43B);
+    font-size: 1.2rem;
+}
+
+.main-nav__logo:hover {
+    transform: rotate(0deg) scale(1.05);
+    color: var(--color-mustard, #D7A43B);
+}
+
+.main-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.main-nav__links a {
+    font-family: var(--font-marker);
+    font-size: 1rem;
+    color: var(--color-beige, #EFE4CF);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 0.2rem 0.4rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.main-nav__links a:hover {
+    color: var(--color-black, #272121);
+    transform: translateY(-2px) rotate(-2deg);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .main-nav__container {
+        padding: 0.5rem 1rem;
+    }
+
+    .main-nav__logo {
+        font-size: 1.25rem;
+    }
+
+    .main-nav__links {
+        gap: 0.65rem;
+    }
+
+    .main-nav__links a {
+        font-size: 0.75rem;
+        padding: 0.1rem;
+    }
+}
+
 /* =========================
    GENERAL SECTION
 ========================= */
@@ -59,7 +186,6 @@ html, body {
     min-height: 100vh;
     padding: 5rem;
 }
-
 
 body {
     font-family: var(--font-body);
@@ -98,6 +224,135 @@ h5,
 h6, 
 span {
     font-family: var(--font-marker);
+}
+
+/* ==========================================
+   FLOATING SOUNDCLOUD MINI-PLAYER UI
+========================================== */
+
+/* Start hidden off-screen */
+#musicFloatingBar {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(39, 33, 33, 0.94) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid #D7A43B !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 4px 4px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 40px;
+    padding: 0.5rem 1rem;
+    color: #EFE4CF;
+    width: auto;
+    min-width: 300px;
+    max-width: 420px;
+
+    /* Hidden by default */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+/* Appears only when active / music is playing */
+#musicFloatingBar.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1);
+}
+
+.music-floating-bar__now-playing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.music-floating-bar__dot {
+    width: 8px;
+    height: 8px;
+    background: #777;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+#musicFloatingBar.is-active .music-floating-bar__dot {
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+}
+
+.music-floating-bar__title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #F8F5EF;
+    max-width: 120px;
+}
+
+.music-floating-bar__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.music-btn {
+    background: #171515 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #EFE4CF !important;
+    font-size: 0.85rem;
+    cursor: pointer;
+    width: 32px !important;
+    height: 32px !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+}
+
+.music-btn--play {
+    background: #D7A43B !important;
+    color: #272121 !important;
+    border: none !important;
+}
+
+.music-btn i {
+    font-style: normal;
+    line-height: 1;
+}
+
+.music-playlist-select {
+    background: #171515;
+    color: #EFE4CF;
+    border: 1.5px solid #D7A43B;
+    border-radius: 20px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.72rem;
+    outline: none;
+    cursor: pointer;
+    max-width: 95px;
+}
+
+@media (max-width: 768px) {
+    #musicFloatingBar {
+        bottom: 14px !important;
+        right: 14px !important;
+        left: 14px !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        padding: 0.4rem 0.75rem;
+    }
 }
 
 /* =========================
@@ -208,6 +463,125 @@ span {
 }
 
 
+/* =========================
+   PAGE SKATEBOARD TRACKER
+========================= */
+
+.storyboard-tracker {
+    position: fixed;
+
+    left: 0;
+    bottom: 18px;
+
+    width: 120px;
+
+    display: block;
+
+    opacity: 1;
+    visibility: visible;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    will-change: transform;
+
+    transition: opacity 0.4s ease;
+}
+
+.storyboard-tracker img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   GENTLE MOVEMENT
+========================= */
+
+.storyboard-tracker.is-moving {
+    animation: skateboard-roll 0.7s ease-in-out infinite;
+}
+
+@keyframes skateboard-roll {
+
+    0% {
+        margin-top: 0;
+        rotate: -2deg;
+    }
+
+    50% {
+        margin-top: -3px;
+        rotate: -1deg;
+    }
+
+    100% {
+        margin-top: 0;
+        rotate: -2deg;
+    }
+
+}
+
+
+/* =========================
+   BOUNCE WHEN STOPPING
+========================= */
+
+.storyboard-tracker.is-stopping {
+    animation: skateboard-stop 0.65s ease-out;
+}
+
+@keyframes skateboard-stop {
+
+    0% {
+        transform:
+            translateX(var(--skate-x))
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    25% {
+        transform:
+            translateX(var(--skate-x))
+            translateY(-6px)
+            rotate(1deg);
+    }
+
+    50% {
+        transform:
+            translateX(var(--skate-x))
+            translateY(2px)
+            rotate(-2deg);
+    }
+
+    70% {
+        transform:
+            translateX(var(--skate-x))
+            translateY(-2px)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translateX(var(--skate-x))
+            translateY(0)
+            rotate(-2deg);
+    }
+
+}
+
+
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.storyboard-tracker.is-hidden {
+    opacity: 0;
+}
 
 /* =========================
    HERO / STORYBOARD
@@ -693,6 +1067,13 @@ span {
     font-size: medium;
     font-weight: 400;
 }
+
+.profile__info-item strong.bf {
+    text-decoration: line-through;
+    text-decoration-color: var(--color-red);
+    text-decoration-thickness: 2px;
+}
+
 .profile__info-item {
     display: grid;
     grid-template-columns: 24px 1fr;
@@ -1296,6 +1677,10 @@ span {
     transform: rotate(-15deg);
 
     z-index: -1;
+
+    transition:
+        scale 0.25s ease,
+        filter 0.25s ease;
 }
 
 .b-side__skateboard img {
@@ -1305,9 +1690,64 @@ span {
     height: auto;
 }
 
+.b-side__skateboard:hover {
+    scale: 1.08;
+
+    filter:
+        drop-shadow(0 8px 8px rgba(0, 0, 0, 0.2));
+
+    z-index: 20;
+}
+
+/* Centered, counter-rotated info card matching the item-info fade */
+.b-side__skateboard .b-side__item-info {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) rotate(15deg) !important;
+    position: absolute;
+
+    left: calc(100%);
+    top: 50%;
+
+    width: 350px;
+
+    padding: 1.2rem 1.4rem;
+
+    background: rgba(30, 30, 30, 0.55);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+    color: var(--color-off-white);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-50%);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+.b-side__skateboard:hover .b-side__item-info {
+    opacity: 1;
+    visibility: visible;
+}
+
 .checker-bside {
     top: 75%
 }
+
 
 
 /* =========================
@@ -1341,7 +1781,7 @@ span {
 
     padding: 1.2rem 1.4rem;
 
-    background: rgba(30, 30, 30, 0.55);
+    background: rgba(18, 18, 18, 0.55);
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -1752,8 +2192,8 @@ span {
 
     min-height: 1100px;
 
-    background: var(--color-black);
-
+    background: var(--color-black) !important;
+    
     padding: 5rem 5vw;
 
     overflow: hidden;
@@ -2081,7 +2521,7 @@ span {
 .leave-mark {
     position: relative;
     min-height: 120vh;
-    background: var(--color-red);
+    background: var(--color-red) !important;
     padding: 5rem 8vw;
     overflow: hidden;
     cursor: crosshair;
@@ -2409,6 +2849,94 @@ span {
 }
 
 
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .storyboard-tracker {
+        width: 80px;
+        bottom: 12px;
+    }
+
+}
+
+
+
+/* =========================
+   SECTION SCROLL TRANSITIONS
+========================= */
+
+[data-section] {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+[data-section].is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body[data-theme="beige"] {
+    background-color: var(--color-beige);
+}
+
+body[data-theme="red"] {
+    background-color: var(--color-red);
+}
+
+body[data-theme="black"] {
+    background-color: var(--color-black);
+}
+
+/* =========================
+   THEME OVERLAY
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -100;
+
+    background-color: var(--color-beige);
+    background: transparent;    
+
+    opacity: 1;
+
+    pointer-events: none;
+
+    transition:
+        background-color 0.8s ease,
+        opacity 0.8s ease;
+}
+
+body[data-theme="beige"]::before {
+    background-color: var(--color-beige);
+}
+
+body[data-theme="red"]::before {
+    background-color: var(--color-red);
+}
+
+body[data-theme="black"]::before {
+    background-color: var(--color-black);
+}
+
+
+
+
+
+
+
 
 /* =========================
    MOBILE RESPONSIVE TWEAKS
@@ -2420,12 +2948,17 @@ span {
         transform-origin: top left;
         transform: scale(calc((100vw) / 1100));
         width: 1100px;
-        margin-bottom: calc(-1 * (1100px - 100vw) * 3.8); /* Adjust canvas height bounding box */
+        margin-bottom: calc(-1 * (1100px - 100vw) * 1.0);
     }
     
 }
 
 @media (max-width: 768px) {
+
+    .storyboard-tracker {
+        width: 80px;
+        bottom: 12px;
+    }
 
     .hero {
         min-height: 80vh;
@@ -2550,39 +3083,39 @@ span {
 
     /* =========================
     RIDE TRANSITION SECTION
-========================= */
+    ========================= */
 
 
-.ride-transition {
-    min-height: 55vh;
+    .ride-transition {
+        min-height: 55vh;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
 
-    position: relative;
-}
+        position: relative;
+    }
 
 
-.ride-transition p {
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
-    font-weight: 400;
-}
+    .ride-transition p {
+        font-size: clamp(1rem, 1.2vw, 1.2rem);
+        font-weight: 400;
+    }
 
-.ride-transition .quote {
-    z-index: 5;
-    align-self: flex-start;
-    margin-top: 8rem;
-    margin-left: 10%;
-    margin-bottom: -9%;
-    text-align: left;
-}
+    .ride-transition .quote {
+        z-index: 5;
+        align-self: flex-start;
+        margin-top: 8rem;
+        margin-left: 10%;
+        margin-bottom: -9%;
+        text-align: left;
+    }
 
-.transition-text {
-    margin: 2rem;
-}
+    .transition-text {
+        margin: 2rem;
+    }
 
     /* =========================
     KICK OFF — MOBILE CANVAS
@@ -2913,6 +3446,30 @@ span {
         width: 60px;
     }
 
+    /* =========================
+    CASSETTE AUDIO STATE
+    ========================= */
+
+    .b-side__item--music {
+        cursor: pointer;
+    }
+
+    @keyframes cassetteBeat {
+        0%, 100% {
+            transform: scale(1) rotate(0deg);
+            filter: drop-shadow(0 0 6px rgba(215, 164, 59, 0.6));
+        }
+        50% {
+            transform: scale(1.08) rotate(-3deg);
+            filter: drop-shadow(0 0 14px rgba(215, 164, 59, 0.95));
+        }
+    }
+
+    .b-side__item--music.is-playing img {
+        animation: cassetteBeat 1.2s ease-in-out infinite;
+    }
+
+    
     
     /* =========================
     OFF THE RECORD — MOBILE
@@ -2971,6 +3528,7 @@ span {
     .archive {
     min-height: 950px;
     padding: 5rem 2rem 0;
+    
     }
 
     /* Move ARCHIVE heading farther away from the photos */

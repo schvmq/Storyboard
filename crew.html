@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛹</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +17,18 @@
     <link rel="stylesheet" href="css/crew.css">
     <title>The Crew</title>
 </head>
-<body>
+<body class="crew-page">
     
+    <!-- =========================
+        BACK BUTTON
+    ========================== -->
+    <a href="index.html" class="nav-back-btn" aria-label="Go back to main page">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>BACK</span>
+    </a>
+
+    
+
     <main>
 
         <!-- =========================
@@ -43,7 +55,7 @@
                     KLEE
                 ========================== -->
 
-                <article class="crew-member crew-member--klee">
+                <article class="crew-member crew-member--klee" data-section>
 
                     <div class="crew-member__polaroid">
 
@@ -76,7 +88,7 @@
                     PRIMO
                 ========================== -->
 
-                <article class="crew-member crew-member--primo">
+                <article class="crew-member crew-member--primo" data-section>
 
                     <div class="crew-member__polaroid">
 
@@ -109,7 +121,7 @@
                     ELIJAH
                 ========================== -->
 
-                <article class="crew-member crew-member--elijah">
+                <article class="crew-member crew-member--elijah" data-section>
 
                     <div class="crew-member__polaroid">
 
@@ -164,6 +176,6 @@
 
     </main>
     
-    <script src="js/crew.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
