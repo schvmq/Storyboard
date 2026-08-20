@@ -18,6 +18,8 @@ html::-webkit-scrollbar {
 
 html, body {
     overflow-x: hidden;
+    overflow-anchor: auto; 
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 :root {
@@ -1077,6 +1079,7 @@ span {
 .profile__info-item {
     display: grid;
     grid-template-columns: 24px 1fr;
+    gap: 1rem;
 
     align-items: start;
 

@@ -526,40 +526,51 @@ updateSkidMarks();
 
 
 /* ==========================================
-   SCRAPBOOK DESKTOP CANVAS AUTO-SCALE
+   SCRAPBOOK DESKTOP CANVAS AUTO-SCALE (ZOOM-SAFE)
 ========================================== */
 
-function autoScaleScrapbookCanvas() {
+let lastKnownWidth = window.innerWidth;
+
+function syncCanvasHeight() {
+    // 1. Ignore resize events caused by pinch-zooming
+    if (window.visualViewport && window.visualViewport.scale > 1.05) {
+        return;
+    }
+
+    // 2. Only re-scale if actual physical viewport width changed (e.g. device rotation)
+    const currentWidth = window.innerWidth;
+    if (Math.abs(currentWidth - lastKnownWidth) < 5) {
+        return;
+    }
+    lastKnownWidth = currentWidth;
+
     const canvas = document.querySelector('.desktop-canvas');
     if (!canvas) return;
 
-    const baseWidth = 1100; // Target design width
-    const screenWidth = window.innerWidth;
+    const isMobile = currentWidth <= 1150;
 
-    if (screenWidth < baseWidth) {
-        const scale = screenWidth / baseWidth;
-        canvas.style.transform = `scale(${scale})`;
+    if (isMobile) {
+        const baseWidth = 1100;
+        const scale = Math.min(1, currentWidth / baseWidth);
+        const actualContentHeight = canvas.scrollHeight;
+        const scaledHeight = actualContentHeight * scale;
+        const heightDifference = actualContentHeight - scaledHeight;
+
         canvas.style.transformOrigin = 'top left';
-        canvas.style.width = `${baseWidth}px`;
-        // Adjust height so space beneath doesn't collapse or create dead gaps
-        canvas.parentElement.style.minHeight = 'auto';
-        canvas.style.marginBottom = `-${(1 - scale) * canvas.offsetHeight}px`;
+        canvas.style.transform = `scale(${scale})`;
+        canvas.style.marginBottom = `-${heightDifference - 100}px`;
     } else {
-        canvas.style.transform = 'none';
-        canvas.style.marginBottom = '0px';
+        canvas.style.transform = '';
+        canvas.style.transformOrigin = '';
+        canvas.style.marginBottom = '';
     }
 }
 
-function syncCanvasHeight() {
-    const canvas = document.querySelector('.desktop-canvas');
-    if (!canvas) return;
-    const scale = Math.min(1, window.innerWidth / 1100);
-    canvas.style.transform = `scale(${scale})`;
-    canvas.style.transformOrigin = 'top left';
-    canvas.style.marginBottom = scale < 1 ? `-${(1 - scale) * canvas.scrollHeight}px` : '0px';
-}
-
-window.addEventListener('resize', syncCanvasHeight);
+    // Attach debounced listeners
+    window.addEventListener('resize', () => {
+    window.requestAnimationFrame(syncCanvasHeight);
+    
+});
 window.addEventListener('DOMContentLoaded', syncCanvasHeight);
 window.addEventListener('load', syncCanvasHeight);
 
