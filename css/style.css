@@ -357,6 +357,29 @@ span {
     }
 }
 
+    /* =========================
+    CASSETTE AUDIO STATE
+    ========================= */
+
+    .b-side__item--music {
+        cursor: pointer;
+    }
+
+    @keyframes cassetteBeat {
+        0%, 100% {
+            transform: scale(1) rotate(0deg);
+            filter: drop-shadow(0 0 6px rgba(215, 164, 59, 0.6));
+        }
+        50% {
+            transform: scale(1.08) rotate(-3deg);
+            filter: drop-shadow(0 0 14px rgba(215, 164, 59, 0.95));
+        }
+    }
+
+    .b-side__item--music.is-playing img {
+        animation: cassetteBeat 1.2s ease-in-out infinite;
+    }
+    
 /* =========================
    SKID MARK
 ========================= */
