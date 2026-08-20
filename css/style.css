@@ -3515,7 +3515,7 @@ body[data-theme="black"]::before {
 
     .off-record__decor--cds {
         width: 145px;
-        bottom: 8%;
+        bottom: 0%;
     }
 
     .off-record__splash {
