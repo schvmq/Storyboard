@@ -526,53 +526,51 @@ updateSkidMarks();
 
 
 /* ==========================================
-   SCRAPBOOK DESKTOP CANVAS AUTO-SCALE (ZOOM-SAFE)
+   ZOOM-SAFE CANVAS SCALING & MOBILE FIX
 ========================================== */
 
-let lastKnownWidth = window.innerWidth;
+function isPinchZooming() {
+    return window.visualViewport && window.visualViewport.scale > 1.02;
+}
 
 function syncCanvasHeight() {
-    // 1. Ignore resize events caused by pinch-zooming
-    if (window.visualViewport && window.visualViewport.scale > 1.05) {
-        return;
-    }
-
-    // 2. Only re-scale if actual physical viewport width changed (e.g. device rotation)
-    const currentWidth = window.innerWidth;
-    if (Math.abs(currentWidth - lastKnownWidth) < 5) {
-        return;
-    }
-    lastKnownWidth = currentWidth;
+    // Prevent zoom resets: never recalculate or change DOM styles when the user is zooming
+    if (isPinchZooming()) return;
 
     const canvas = document.querySelector('.desktop-canvas');
     if (!canvas) return;
 
-    const isMobile = currentWidth <= 1150;
+    const currentWidth = window.innerWidth;
+    const baseWidth = 1100;
 
-    if (isMobile) {
-        const baseWidth = 1100;
-        const scale = Math.min(1, currentWidth / baseWidth);
+    if (currentWidth < baseWidth) {
+        const scale = currentWidth / baseWidth;
         const actualContentHeight = canvas.scrollHeight;
         const scaledHeight = actualContentHeight * scale;
-        const heightDifference = actualContentHeight - scaledHeight;
+        const heightDiff = actualContentHeight - scaledHeight;
 
         canvas.style.transformOrigin = 'top left';
         canvas.style.transform = `scale(${scale})`;
-        canvas.style.marginBottom = `-${heightDifference - 100}px`;
+        canvas.style.width = `${baseWidth}px`;
+        canvas.style.marginBottom = `-${heightDiff}px`;
     } else {
         canvas.style.transform = '';
         canvas.style.transformOrigin = '';
+        canvas.style.width = '';
         canvas.style.marginBottom = '';
     }
 }
 
-    // Attach debounced listeners
-    window.addEventListener('resize', () => {
-    window.requestAnimationFrame(syncCanvasHeight);
-    
-});
+// Window listeners
 window.addEventListener('DOMContentLoaded', syncCanvasHeight);
 window.addEventListener('load', syncCanvasHeight);
+window.addEventListener('resize', () => {
+    if (!isPinchZooming()) {
+        syncCanvasHeight();
+    }
+});
+
+
 
 
 /* ==========================================
